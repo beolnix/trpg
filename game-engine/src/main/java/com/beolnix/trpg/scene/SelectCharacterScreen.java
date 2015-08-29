@@ -13,10 +13,11 @@ import com.beolnix.trpg.model.UserInputRequest;
 public class SelectCharacterScreen implements Scene {
 
     private final Game game;
-    private final UserInputRequest userInputRequest =
+    private final UserInputRequest imageInputRequest =
             new UserInputRequest("Enter",
                     new InputOption[]{new InputOption("1", "Skip"), new InputOption("2", "Accept")}
             );
+    private final UserInputRequest nameInputRequest = new UserInputRequest("Enter character name", new InputOption[]{});
 
     public SelectCharacterScreen(Game game) {
         this.game = game;
@@ -37,36 +38,34 @@ public class SelectCharacterScreen implements Scene {
 
     private void displayWelcome() {
         System.out.println("Welcome, " + game.getPers().getName() + " back!");
-        printImage(game.getPers().getType());
+        printImage(game.getPers().getImage());
     }
 
     private String askName() {
-        UserInputRequest userInputRequest = new UserInputRequest("Enter character name", new InputOption[]{});
-        return TerminalHelper.askUserInput(userInputRequest);
+        return TerminalHelper.askUserInput(nameInputRequest);
     }
 
     private Pers selectCharacter() {
-        Pers pers = null;
-        int current = 1;
+        int currentImage = 1;
         System.out.println("Select character.");
         while (true) {
-            printImage(current);
-            String userInput = TerminalHelper.askUserInput(userInputRequest);
+            printImage(currentImage);
+            String userInput = TerminalHelper.askUserInput(imageInputRequest);
 
             if ("1".equals(userInput.trim())) {
                 // display images in a cycle forever
-                current = nextImage(current);
+                currentImage = nextImage(currentImage);
             } else if ("2".equals(userInput.trim())) {
                 // stop if user choose some image
-                pers = new Pers();
-                pers.setType(current);
+                Pers pers = new Pers();
+                pers.setImage(currentImage);
                 return pers;
             }
         }
     }
 
     private int nextImage(int prevImage) {
-        if (prevImage == 3) {
+        if (prevImage >= 3) {
             return 1;
         } else {
             return prevImage + 1;

@@ -9,7 +9,7 @@ public class Pers implements Serializable {
     private static final long serialVersionUID = -1811670629467388557L;
 
     private String name;
-    private int type;
+    private int image;
 
     public Pers() {
     }
@@ -39,11 +39,11 @@ public class Pers implements Serializable {
         this.name = name;
     }
 
-    public int getType() {
-        return type;
+    public int getImage() {
+        return image;
     }
 
-    public void setType(int type) {
-        this.type = type;
+    public void setImage(int image) {
+        this.image = image;
     }
 }
