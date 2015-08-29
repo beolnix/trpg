@@ -29,8 +29,15 @@ public class SelectCharacterScreen implements Scene {
             pers = selectCharacter();
             pers.setName(askName());
             game.setPers(pers);
+        } else {
+            displayWelcome();
         }
         return new ExploreScreen(game);
+    }
+
+    private void displayWelcome() {
+        System.out.println("Welcome, " + game.getPers().getName() + " back!");
+        printImage(game.getPers().getType());
     }
 
     private String askName() {

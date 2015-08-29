@@ -13,9 +13,7 @@ public class GameScenario {
     public static void run(Game game) {
         new SplashScreen(game).play();
 
-        if (game.getPers() == null) {
-            new SelectCharacterScreen(game).play();
-        }
+        new SelectCharacterScreen(game).play();
 
         GameMaster.saveGame(game, game.getSavePath());
 
