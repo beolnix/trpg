@@ -45,7 +45,7 @@ public class GameMaster {
         }
     }
 
-    public static void saveGame(Game game, String path) throws Fatal {
+    public static void saveGame(Game game, String path) {
         try {
             File file = new File(path);
             if (!file.exists()) {
@@ -58,7 +58,8 @@ public class GameMaster {
             encoder.writeObject(game);
             encoder.close();
         } catch (IOException e) {
-            throw new Fatal("Can't save game, permissions error: " + path, e);
+            System.out.println("ERROR: can't save game because of " + e.getMessage());
+            System.exit(1);
         }
     }
 

@@ -6,12 +6,8 @@ import com.beolnix.trpg.cmdargs.impl.DefaultArgumentsParser;
 import com.beolnix.trpg.cmdargs.error.UnknownFlag;
 import com.beolnix.trpg.cmdargs.model.CommandLineArgument;
 import com.beolnix.trpg.cmdargs.model.PassedArgument;
-import com.beolnix.trpg.error.Fatal;
 import com.beolnix.trpg.model.Game;
-import com.beolnix.trpg.scene.Scene;
-import com.beolnix.trpg.scene.SplashScreen;
 
-import java.io.File;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Map;
@@ -32,10 +28,7 @@ public class App {
 
         Game game = loadGame(parsedArguments);
 
-        Scene nextScene = new SplashScreen(game);
-        while (nextScene != null) {
-            nextScene = nextScene.play();
-        }
+        GameScenario.run(game);
 
     }
 

@@ -9,16 +9,9 @@ public class Pers implements Serializable {
     private static final long serialVersionUID = -1811670629467388557L;
 
     private String name;
+    private int type;
 
     public Pers() {
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     @Override
@@ -36,5 +29,21 @@ public class Pers implements Serializable {
     @Override
     public int hashCode() {
         return name != null ? name.hashCode() : 0;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
     }
 }
