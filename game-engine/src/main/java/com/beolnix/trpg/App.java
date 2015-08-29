@@ -6,10 +6,18 @@ import com.beolnix.trpg.cmdargs.impl.DefaultArgumentsParser;
 import com.beolnix.trpg.cmdargs.error.UnknownFlag;
 import com.beolnix.trpg.cmdargs.model.CommandLineArgument;
 import com.beolnix.trpg.cmdargs.model.PassedArgument;
+import com.beolnix.trpg.error.Fatal;
+import com.beolnix.trpg.model.Game;
+import com.beolnix.trpg.scene.Scene;
+import com.beolnix.trpg.scene.SplashScreen;
 
+import java.io.File;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Map;
+
+import static com.beolnix.trpg.GameArgs.savedGameCommandLineArgument;
+import static com.beolnix.trpg.GameArgs.versionCommandLineArgument;
 
 public class App {
 
@@ -22,12 +30,26 @@ public class App {
         printHelpIfRequired(parsedArguments.values());
         printVersionIfRequired(parsedArguments.values());
 
-        System.out.println("we are running!");
+        Game game = loadGame(parsedArguments);
+
+        Scene nextScene = new SplashScreen(game);
+        while (nextScene != null) {
+            nextScene = nextScene.play();
+        }
 
     }
 
+    private static Game loadGame(Map<CommandLineArgument, PassedArgument> parsedArguments) {
+        if (ArgumentsHelper.consistOf(parsedArguments.values(), savedGameCommandLineArgument)) {
+            String path = ArgumentsHelper.getArgumentValue(parsedArguments, savedGameCommandLineArgument);
+            return GameMaster.loadOrCreateGame(path);
+        }
+
+        return GameMaster.loadOrCreateGame();
+    }
+
     private static void printVersionIfRequired(Collection<PassedArgument> parsedArguments) {
-        if (ArgumentsHelper.consistOf(parsedArguments, GameArgs.versionCommandLineArgument)) {
+        if (ArgumentsHelper.consistOf(parsedArguments, versionCommandLineArgument)) {
             String version = VersionHelper.getVersion();
             System.out.println(appName + " version " + version);
             System.exit(1);
