@@ -14,8 +14,9 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jdk.version>1.8</jdk.version>
 
-        <!-- Jacoco -->
+        <!-- Jacoco - coverage -->
         <jacoco.reportPath>target/jacoco.exec</jacoco.reportPath>
+        <jacoco.version>0.7.4.201502262128</jacoco.version>
     </properties>
 
     <developers>
@@ -80,6 +81,23 @@
                             <jacoco-agent.destfile>target/jacoco.exec</jacoco-agent.destfile>
                         </systemPropertyVariables>
                     </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.jacoco</groupId>
+                    <artifactId>jacoco-maven-plugin</artifactId>
+                    <version>${jacoco.version}</version>
+                    <configuration>
+                        <destFile>${jacoco.reportPath}</destFile>
+                        <append>true</append>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <id>agent</id>
+                            <goals>
+                                <goal>prepare-agent</goal>
+                            </goals>
+                        </execution>
+                    </executions>
                 </plugin>
             </plugins>
 
