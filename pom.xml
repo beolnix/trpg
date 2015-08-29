@@ -18,6 +18,26 @@
         <jacoco.reportPath>target/jacoco.exec</jacoco.reportPath>
     </properties>
 
+    <developers>
+        <developer>
+            <email>atmakin.dv@gmail.com</email>
+            <name>Danila Atmakin</name>
+        </developer>
+    </developers>
+
+    <distributionManagement>
+        <repository>
+            <id>beolnix-releases</id>
+            <name>releases repo</name>
+            <url>http://nexus.beolnix.com/content/repositories/releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>beolnix-snapshots</id>
+            <name>snapshots repo</name>
+            <url>http://nexus.beolnix.com/content/repositories/snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
     <modules>
         <module>args-parser</module>
         <module>game-engine</module>
