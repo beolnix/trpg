@@ -9,6 +9,9 @@ import java.util.Map;
 import java.util.Set;
 
 /**
+ * Arguments Parser interface.
+ * Parser is used to transform provided command lines parameters into the Passed Arguments objects
+ * It also provides functionality to nicely print supported command line arguments.
  * Created by beolnix on 29/08/15.
  */
 public interface ArgumentsParser {

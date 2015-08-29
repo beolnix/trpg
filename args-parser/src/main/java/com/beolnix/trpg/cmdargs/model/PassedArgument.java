@@ -1,6 +1,7 @@
 package com.beolnix.trpg.cmdargs.model;
 
 /**
+ * Model to save passed command line argument and its value.
  * Created by beolnix on 29/08/15.
  */
 public class PassedArgument {

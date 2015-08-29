@@ -1,7 +1,7 @@
 package com.beolnix.trpg.cmdargs;
 
 import com.beolnix.trpg.cmdargs.error.UnknownFlag;
-import com.beolnix.trpg.cmdargs.impl.ArgumentsParserImpl;
+import com.beolnix.trpg.cmdargs.impl.DefaultArgumentsParser;
 import com.beolnix.trpg.cmdargs.model.CommandLineArgument;
 import com.beolnix.trpg.cmdargs.model.PassedArgument;
 import org.junit.Test;
@@ -42,7 +42,7 @@ public class ArgumentsParserTestCase {
 
     @Test
     public void testTransform() throws UnknownFlag {
-        ArgumentsParser argsParser = new ArgumentsParserImpl(getSupportedArgs());
+        ArgumentsParser argsParser = new DefaultArgumentsParser(getSupportedArgs());
         String[] args = new String[]{"-s", "path"};
         Map<CommandLineArgument, PassedArgument> passedArgs = argsParser.transform(args);
 
@@ -54,7 +54,7 @@ public class ArgumentsParserTestCase {
 
     @Test
     public void testConsistOfHelp() throws UnknownFlag {
-        ArgumentsParser argsParser = new ArgumentsParserImpl(getSupportedArgs());
+        ArgumentsParser argsParser = new DefaultArgumentsParser(getSupportedArgs());
         String[] args = new String[]{"-h"};
         Map<CommandLineArgument, PassedArgument> passedArgs = argsParser.transform(args);
 
@@ -63,14 +63,14 @@ public class ArgumentsParserTestCase {
 
     @Test
     public void testHelp() throws UnknownFlag {
-        ArgumentsParser argsParser = new ArgumentsParserImpl(getSupportedArgs());
+        ArgumentsParser argsParser = new DefaultArgumentsParser(getSupportedArgs());
 
         assertEquals(expectedHelpMessage, argsParser.getHelpMessage());
     }
 
     @Test(expected = UnknownFlag.class)
     public void testUnkownArgumentException() throws UnknownFlag {
-        ArgumentsParser argsParser = new ArgumentsParserImpl(getSupportedArgs());
+        ArgumentsParser argsParser = new DefaultArgumentsParser(getSupportedArgs());
         String[] args = new String[]{"-vava"};
         Map<CommandLineArgument, PassedArgument> passedArgs = argsParser.transform(args);
     }

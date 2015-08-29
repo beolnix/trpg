@@ -13,13 +13,14 @@ import static com.beolnix.trpg.cmdargs.DefaultArguments.helpCommandLineArgument;
 
 
 /**
+ * Default implementation of ArgumentsParser interface
  * Created by beolnix on 29/08/15.
  */
-public class ArgumentsParserImpl implements ArgumentsParser {
+public class DefaultArgumentsParser implements ArgumentsParser {
 
     private final Set<CommandLineArgument> supportedCommandLineArguments = new HashSet<>();
 
-    public ArgumentsParserImpl(CommandLineArgument... supportedCommandLineArguments) {
+    public DefaultArgumentsParser(CommandLineArgument... supportedCommandLineArguments) {
         this.supportedCommandLineArguments.addAll(Arrays.asList(supportedCommandLineArguments));
         this.supportedCommandLineArguments.add(helpCommandLineArgument);
     }
@@ -53,6 +54,12 @@ public class ArgumentsParserImpl implements ArgumentsParser {
         return HelpPrinter.printHelp(supportedCommandLineArguments);
     }
 
+    /**
+     * Method searches for the corresponding commandLineArgument which describes provided argument
+     * @param arg provided argument
+     * @return commandLineArgument instance in case of success
+     * @throws UnknownFlag in case corresponding commandLineArgument not found
+     */
     private CommandLineArgument parseArg(String arg) throws UnknownFlag {
         for (CommandLineArgument argument : supportedCommandLineArguments) {
             if (argument.consistFlag(arg)) {

@@ -2,20 +2,19 @@ package com.beolnix.trpg;
 
 
 import com.beolnix.trpg.cmdargs.ArgumentsHelper;
-import com.beolnix.trpg.cmdargs.impl.ArgumentsParserImpl;
+import com.beolnix.trpg.cmdargs.impl.DefaultArgumentsParser;
 import com.beolnix.trpg.cmdargs.error.UnknownFlag;
 import com.beolnix.trpg.cmdargs.model.CommandLineArgument;
 import com.beolnix.trpg.cmdargs.model.PassedArgument;
 
 import java.util.Collection;
 import java.util.Collections;
-import java.util.List;
 import java.util.Map;
 
 public class App {
 
     private final static String appName = "Tiny role play game";
-    private final static ArgumentsParserImpl argsParser = new ArgumentsParserImpl(GameArgs.getAll());
+    private final static DefaultArgumentsParser argsParser = new DefaultArgumentsParser(GameArgs.getAll());
 
     public static void main(String[] args) {
 

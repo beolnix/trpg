@@ -3,6 +3,7 @@ package com.beolnix.trpg.cmdargs.model;
 import java.util.stream.Stream;
 
 /**
+ * Model describes details of supported Command Line Argument
  * Created by beolnix on 29/08/15.
  */
 public class CommandLineArgument {

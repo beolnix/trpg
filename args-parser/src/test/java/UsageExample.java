@@ -1,11 +1,10 @@
 import com.beolnix.trpg.cmdargs.ArgumentsHelper;
 import com.beolnix.trpg.cmdargs.ArgumentsParser;
 import com.beolnix.trpg.cmdargs.error.UnknownFlag;
-import com.beolnix.trpg.cmdargs.impl.ArgumentsParserImpl;
+import com.beolnix.trpg.cmdargs.impl.DefaultArgumentsParser;
 import com.beolnix.trpg.cmdargs.model.CommandLineArgument;
 import com.beolnix.trpg.cmdargs.model.PassedArgument;
 
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -26,7 +25,7 @@ public class UsageExample {
     );
 
     public static void main(String[] args) {
-        ArgumentsParser argsParser = new ArgumentsParserImpl(getSupportedArgs());
+        ArgumentsParser argsParser = new DefaultArgumentsParser(getSupportedArgs());
 
         try {
 
