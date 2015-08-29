@@ -29,16 +29,19 @@ public class ArgumentsParserTestCase {
             new String[]{"-s", "--source"}
     );
 
-    private String expectedHelpMessage = "" +
-            "The following command line arguments are supported:\n" +
-            "\n" +
-            "Flags            Example                Description\n" +
-            "\n" +
+    private String expectedCaptionHelpMessage = "" +
+            "The following command line arguments are supported:";
+
+
+    private String expectedSourceHelpMessage = "" +
             "-s,--source      -s ./path/to/file      Description of the argument. The\n" +
             "                                        description will be automatically\n" +
-            "                                        splitted if it longer then 30 chars.\n" +
-            "\n" +
-            "-h,--help        -h                     Prints this help.\n\n";
+            "                                        splitted if it longer then 30 chars.\n";
+
+
+    private String expectedHelpMessage = "" +
+            "-h,--help        -h                     Prints this help.\n";
+
 
     @Test
     public void testTransform() throws UnknownFlag {
@@ -65,7 +68,11 @@ public class ArgumentsParserTestCase {
     public void testHelp() throws UnknownFlag {
         ArgumentsParser argsParser = new DefaultArgumentsParser(getSupportedArgs());
 
-        assertEquals(expectedHelpMessage, argsParser.getHelpMessage());
+        String helpMsg = argsParser.getHelpMessage();
+
+        assertTrue(helpMsg.contains(expectedCaptionHelpMessage));
+        assertTrue(helpMsg.contains(expectedSourceHelpMessage));
+        assertTrue(helpMsg.contains(expectedHelpMessage));
     }
 
     @Test(expected = UnknownFlag.class)
