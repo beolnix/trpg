@@ -2,10 +2,7 @@ package com.beolnix.trpg.cmdargs;
 
 import com.beolnix.trpg.cmdargs.model.CommandLineArgument;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -20,7 +17,7 @@ public class HelpPrinter {
     private HelpPrinter() {
     }
 
-    public static String printHelp(List<CommandLineArgument> commandLineArguments) {
+    public static String printHelp(Set<CommandLineArgument> commandLineArguments) {
 
         int argsOffset = getArgsOffset(commandLineArguments);
         int exampleOffset = getExampleOffset(commandLineArguments);
@@ -28,16 +25,17 @@ public class HelpPrinter {
         String mainFormat = "%-" + argsOffset + "s %-" + exampleOffset + "s %s\n";
         int descirptionOffset = argsOffset + exampleOffset + 1;
 
+        StringBuilder builder = new StringBuilder();
 
-        return formatHelp(commandLineArguments, mainFormat, descirptionOffset);
+        builder.append("The following command line arguments are supported:\n\n");
+        builder.append(formatHelp(commandLineArguments, mainFormat, descirptionOffset));
+
+        return builder.toString();
     }
 
-    private static String formatHelp(List<CommandLineArgument> commandLineArguments, String format, int descirptionOffset) {
-        String version = MetainfHelper.getVersion();
-
+    private static String formatHelp(Set<CommandLineArgument> commandLineArguments, String format, int descirptionOffset) {
         StringBuilder builder = new StringBuilder();
-        builder.append("Tiny role play game version " + version +":\n");
-        builder.append("The following command line arguments are supported:\n\n");
+
         builder.append(String.format(format + "\n", "Flags", "Example", "Description"));
 
         commandLineArguments.stream()
@@ -81,7 +79,7 @@ public class HelpPrinter {
         return lines;
     }
 
-    private static int getArgsOffset(List<CommandLineArgument> commandLineArguments) {
+    private static int getArgsOffset(Set<CommandLineArgument> commandLineArguments) {
         return getOffset(
                 commandLineArguments.stream()
                         .map(flag ->
@@ -91,7 +89,7 @@ public class HelpPrinter {
         );
     }
 
-    private static int getExampleOffset(List<CommandLineArgument> commandLineArguments) {
+    private static int getExampleOffset(Set<CommandLineArgument> commandLineArguments) {
         return getOffset(
                 commandLineArguments.stream()
                     .map(flag -> flag.getExample())

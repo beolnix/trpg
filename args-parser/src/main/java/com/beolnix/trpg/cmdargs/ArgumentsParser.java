@@ -6,6 +6,8 @@ import com.beolnix.trpg.cmdargs.model.PassedArgument;
 
 import java.util.*;
 
+import static com.beolnix.trpg.cmdargs.DefaultArguments.helpCommandLineArgument;
+
 
 
 /**
@@ -13,10 +15,7 @@ import java.util.*;
  */
 public class ArgumentsParser {
 
-    public final static CommandLineArgument helpCommandLineArgument =
-            new CommandLineArgument("Prints this help.", "-h", new String[]{"-h", "--help"});
-
-    private final List<CommandLineArgument> supportedCommandLineArguments = new LinkedList<>();
+    private final Set<CommandLineArgument> supportedCommandLineArguments = new HashSet<>();
 
     public ArgumentsParser(CommandLineArgument... supportedCommandLineArguments) {
         this.supportedCommandLineArguments.addAll(Arrays.asList(supportedCommandLineArguments));
@@ -55,9 +54,11 @@ public class ArgumentsParser {
         return passedArgumentList;
     }
 
+    public Set<CommandLineArgument> getSupportedCommandLineArguments() {
+        return supportedCommandLineArguments;
+    }
+
     public String getHelpMessage() {
         return HelpPrinter.printHelp(supportedCommandLineArguments);
     }
-
-
 }
