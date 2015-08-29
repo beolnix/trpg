@@ -2,30 +2,32 @@ package com.beolnix.trpg;
 
 
 import com.beolnix.trpg.cmdargs.ArgumentsHelper;
-import com.beolnix.trpg.cmdargs.ArgumentsParser;
-import com.beolnix.trpg.cmdargs.DefaultArguments;
+import com.beolnix.trpg.cmdargs.impl.ArgumentsParserImpl;
 import com.beolnix.trpg.cmdargs.error.UnknownFlag;
+import com.beolnix.trpg.cmdargs.model.CommandLineArgument;
 import com.beolnix.trpg.cmdargs.model.PassedArgument;
 
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 
 public class App {
 
     private final static String appName = "Tiny role play game";
-    private final static ArgumentsParser argsParser = new ArgumentsParser(GameArgs.getAll());
+    private final static ArgumentsParserImpl argsParser = new ArgumentsParserImpl(GameArgs.getAll());
 
     public static void main(String[] args) {
 
-        List<PassedArgument> parsedArguments = parseArgs(args);
-        printHelpIfRequired(parsedArguments);
-        printVersionIfRequired(parsedArguments);
+        Map<CommandLineArgument, PassedArgument> parsedArguments = parseArgs(args);
+        printHelpIfRequired(parsedArguments.values());
+        printVersionIfRequired(parsedArguments.values());
 
         System.out.println("we are running!");
 
     }
 
-    private static void printVersionIfRequired(List<PassedArgument> parsedArguments) {
+    private static void printVersionIfRequired(Collection<PassedArgument> parsedArguments) {
         if (ArgumentsHelper.consistOf(parsedArguments, GameArgs.versionCommandLineArgument)) {
             String version = VersionHelper.getVersion();
             System.out.println(appName + " version " + version);
@@ -33,14 +35,14 @@ public class App {
         }
     }
 
-    private static void printHelpIfRequired(List<PassedArgument> parsedArguments) {
+    private static void printHelpIfRequired(Collection<PassedArgument> parsedArguments) {
         if (ArgumentsHelper.consistOfHelp(parsedArguments)) {
             System.out.println(argsParser.getHelpMessage());
             System.exit(1);
         }
     }
 
-    private static List<PassedArgument> parseArgs(String[] args) {
+    private static Map<CommandLineArgument, PassedArgument> parseArgs(String[] args) {
 
         try {
             return argsParser.transform(args);
@@ -50,7 +52,7 @@ public class App {
             System.exit(1);
         }
 
-        return Collections.emptyList();
+        return Collections.emptyMap();
     }
 
 

@@ -4,61 +4,34 @@ import com.beolnix.trpg.cmdargs.error.UnknownFlag;
 import com.beolnix.trpg.cmdargs.model.CommandLineArgument;
 import com.beolnix.trpg.cmdargs.model.PassedArgument;
 
-import java.util.*;
-
-import static com.beolnix.trpg.cmdargs.DefaultArguments.helpCommandLineArgument;
-
-
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * Created by beolnix on 29/08/15.
  */
-public class ArgumentsParser {
+public interface ArgumentsParser {
 
-    private final Set<CommandLineArgument> supportedCommandLineArguments = new HashSet<>();
+    /**
+     * Transforms passed command line arguments to the list of PassedArgument objects.
+     * Throws exception if unsupported argument found.
+     * @param args array of command line arguments
+     * @return list of PassedArgument objects
+     * @throws UnknownFlag if unsupported (not passed to the constructor) argument found.
+     */
+    public Map<CommandLineArgument, PassedArgument> transform(String[] args) throws UnknownFlag;
 
-    public ArgumentsParser(CommandLineArgument... supportedCommandLineArguments) {
-        this.supportedCommandLineArguments.addAll(Arrays.asList(supportedCommandLineArguments));
-        this.supportedCommandLineArguments.add(helpCommandLineArgument);
-    }
+    /**
+     * Return supported command line arguments
+     * @return supported command line arguments
+     */
+    public Set<CommandLineArgument> getSupportedCommandLineArguments();
 
-    private CommandLineArgument parseArg(String arg) throws UnknownFlag {
-        for (CommandLineArgument argument : supportedCommandLineArguments) {
-            if (argument.consistFlag(arg)) {
-                return argument;
-            }
-        }
+    /**
+     * Generates help message based on supported arguments.
+     * @return help message based on supported arguments.
+     */
+    public String getHelpMessage();
 
-        throw new UnknownFlag(arg);
-    }
-
-
-    public List<PassedArgument> transform(String[] args) throws UnknownFlag {
-        if (args.length == 0) {
-            return Collections.emptyList();
-        }
-
-        LinkedList<String> argsList = new LinkedList<>(Arrays.asList(args));
-        List<PassedArgument> passedArgumentList = new ArrayList<>();
-        while(!argsList.isEmpty()) {
-            String flagStr = argsList.pop();
-            CommandLineArgument commandLineArgument = parseArg(flagStr);
-            if (!argsList.isEmpty()) {
-                passedArgumentList.add(new PassedArgument(commandLineArgument, argsList.pop()));
-            } else {
-                passedArgumentList.add(new PassedArgument(commandLineArgument, null));
-            }
-
-        }
-
-        return passedArgumentList;
-    }
-
-    public Set<CommandLineArgument> getSupportedCommandLineArguments() {
-        return supportedCommandLineArguments;
-    }
-
-    public String getHelpMessage() {
-        return HelpPrinter.printHelp(supportedCommandLineArguments);
-    }
 }
