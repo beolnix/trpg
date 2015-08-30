@@ -5,9 +5,11 @@
 
 ## Install And Run binaries
 
+### Requirements
 - Java 1.8 is required to run the game.
 - java program must be in $PATH.
 
+### Instruction
 1. Download binary distrib from here: [trpg-distr-0.1.zip](http://nexus.beolnix.com/service/local/repositories/releases/content/com/beolnix/trpg-distr/0.1/trpg-distr-0.1.zip)
 2. Unpack
 3. run trpg.sh
@@ -26,8 +28,8 @@ Use --help to see all available command line parameters
 
 1. git clone git@github.com:beolnix/trpg.git
 2. mvn clean install
-
-Game distr should be in ${project.basedir}/target/trpg-distr-${project.version}.zip
+3. unpack ${project.basedir}/target/trpg-distr-${project.version}.zip
+4. run trpg.sh
 
 ## Source code short introduction
 
