@@ -10,6 +10,7 @@ import static org.junit.Assert.assertEquals;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -30,7 +31,7 @@ public class InteractiveConsoleTestCase {
     }
 
     @Test
-    public void askUserInputTest() {
+    public void askUserInputTestLimitedWithOptions() {
         ByteArrayOutputStream os = new ByteArrayOutputStream();
         PrintStream ps = new PrintStream(os);
 
@@ -45,6 +46,22 @@ public class InteractiveConsoleTestCase {
         assertEquals(expectedInput, inputOption.getActualInput());
     }
 
+    @Test
+    public void askUserInputNonLimitedTest() {
+        ByteArrayOutputStream os = new ByteArrayOutputStream();
+        PrintStream ps = new PrintStream(os);
+
+        String expectedInput = "someInput";
+
+        byte[] buf = expectedInput.getBytes();
+        ByteArrayInputStream is = new ByteArrayInputStream(buf);
+
+        SimpleTerminal terminal = new InteractiveConsole(ps, is);
+
+        InputOption inputOption = terminal.askUserInput(getNameUserInputRequest());
+        assertEquals(expectedInput, inputOption.getActualInput());
+    }
+
     private UserInputRequest getImageUserInputRequest() {
         List<InputOption> inputOptionList = new ArrayList<>();
         inputOptionList.add(new InputOption("1", "Skip"));
@@ -53,5 +70,9 @@ public class InteractiveConsoleTestCase {
         return new UserInputRequest("Enter",
                 inputOptionList
         );
+    }
+
+    private UserInputRequest getNameUserInputRequest() {
+        return new UserInputRequest("Enter character name", Collections.emptyList());
     }
 }
