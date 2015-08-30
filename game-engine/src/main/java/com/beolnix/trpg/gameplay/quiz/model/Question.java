@@ -3,6 +3,8 @@ package com.beolnix.trpg.gameplay.quiz.model;
 import java.util.Set;
 
 /**
+ * Model used to save the information about question including
+ * the question itself, answer options and the correct answer.
  * Created by beolnix on 30/08/15.
  */
 public class Question {

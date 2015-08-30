@@ -3,6 +3,7 @@ package com.beolnix.trpg.terminal.model;
 import java.util.List;
 
 /**
+ * Model used to save the User input request including description of the input and input options.
  * Created by beolnix on 30/08/15.
  */
 public class UserInputRequest {

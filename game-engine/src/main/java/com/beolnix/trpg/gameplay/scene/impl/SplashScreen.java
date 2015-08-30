@@ -6,6 +6,7 @@ import com.beolnix.trpg.gameplay.scene.SimpleTerminalScene;
 import com.beolnix.trpg.model.Game;
 
 /**
+ * The first screen, demonstrates splash screen image.
  * Created by beolnix on 29/08/15.
  */
 public class SplashScreen extends SimpleTerminalScene {

@@ -13,6 +13,7 @@ import java.util.Collections;
 import java.util.List;
 
 /**
+ * Screen is used to ask player to select a character to play.
  * Created by beolnix on 30/08/15.
  */
 public class SelectCharacterScreen extends SimpleTerminalScene {

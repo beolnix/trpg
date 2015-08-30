@@ -7,6 +7,7 @@ import com.beolnix.trpg.terminal.SimpleTerminal;
 import com.beolnix.trpg.utils.ContentHelper;
 
 /**
+ * If player won, then he should see this screen.
  * Created by beolnix on 30/08/15.
  */
 public class FinishGameScreen extends SimpleTerminalScene {

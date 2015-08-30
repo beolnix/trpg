@@ -9,6 +9,7 @@ import com.beolnix.trpg.terminal.model.UserInputRequest;
 import java.util.*;
 
 /**
+ * Explore Scene displays player minimap and ask where to go next.
  * Created by beolnix on 30/08/15.
  */
 public class ExploreScreen extends SimpleTerminalScene {

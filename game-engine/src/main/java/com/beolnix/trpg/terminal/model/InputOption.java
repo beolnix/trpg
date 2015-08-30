@@ -1,6 +1,7 @@
 package com.beolnix.trpg.terminal.model;
 
 /**
+ * Model used to save options User is allowed to choose
  * Created by beolnix on 30/08/15.
  */
 public class InputOption {

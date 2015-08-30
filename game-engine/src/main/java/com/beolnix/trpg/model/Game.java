@@ -3,6 +3,7 @@ package com.beolnix.trpg.model;
 import java.io.Serializable;
 
 /**
+ * Main game object used to save the game state.
  * Created by beolnix on 29/08/15.
  */
 public class Game implements Serializable {

@@ -7,6 +7,8 @@ import com.beolnix.trpg.gameplay.scene.impl.*;
 import com.beolnix.trpg.model.Game;
 
 /**
+ * Class describes how the game goes. Step by Step it executes Scene.play() methods
+ * Sequence of Scene.play() is the game it self.
  * Created by beolnix on 30/08/15.
  */
 public class GameScenario {

@@ -18,6 +18,10 @@ import java.util.Map;
 import static com.beolnix.trpg.GameArgs.savedGameCommandLineArgument;
 import static com.beolnix.trpg.GameArgs.versionCommandLineArgument;
 
+
+/**
+ * Game start point.
+ */
 public class App {
 
     private final static String appName = "Tiny role play game";

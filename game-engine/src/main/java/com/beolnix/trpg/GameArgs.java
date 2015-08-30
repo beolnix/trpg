@@ -3,6 +3,7 @@ package com.beolnix.trpg;
 import com.beolnix.trpg.cmdargs.model.CommandLineArgument;
 
 /**
+ * Arguments supported by the game
  * Created by beolnix on 29/08/15.
  */
 public class GameArgs {

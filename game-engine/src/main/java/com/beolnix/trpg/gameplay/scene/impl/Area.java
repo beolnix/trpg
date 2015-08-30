@@ -8,6 +8,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
+ * Area is the mini map used by ExploreScreen to display where the player is and what variants he has.
  * Created by beolnix on 30/08/15.
  */
 public class Area {

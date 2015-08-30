@@ -6,6 +6,7 @@ import com.beolnix.trpg.gameplay.scene.Scene;
 import com.beolnix.trpg.gameplay.scene.SimpleTerminalScene;
 
 /**
+ * If Player failed, then he should see this screen.
  * Created by beolnix on 30/08/15.
  */
 public class GameOverScreen extends SimpleTerminalScene {

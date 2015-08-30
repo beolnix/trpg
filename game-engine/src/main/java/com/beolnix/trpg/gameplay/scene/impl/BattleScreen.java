@@ -14,6 +14,8 @@ import java.util.ArrayList;
 import java.util.Random;
 
 /**
+ * Battle scene is the scene when Alien ask you a question and provide several answer options.
+ * Player may die on this scene if he provides incorrect answer or go to the next scene;
  * Created by beolnix on 30/08/15.
  */
 public class BattleScreen extends SimpleTerminalScene {

@@ -3,6 +3,7 @@ package com.beolnix.trpg.model;
 import java.io.Serializable;
 
 /**
+ * Game object used to save the information about game state and player's character.
  * Created by beolnix on 29/08/15.
  */
 public class Pers implements Serializable {

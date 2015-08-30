@@ -11,6 +11,11 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
 /**
+ * It's archetype for all screens,
+ * to correctly configure terminal used for interaction with the player.
+ *
+ * Any new Scene must extends this archetype
+ *
  * Created by beolnix on 30/08/15.
  */
 public abstract class SimpleTerminalScene implements Scene {
