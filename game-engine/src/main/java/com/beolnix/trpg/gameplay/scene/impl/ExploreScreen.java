@@ -38,8 +38,8 @@ public class ExploreScreen extends SimpleTerminalScene {
             return new BattleScreen(game, userInputNumber);
         }
 
-        println("\n\n Something went wrong, lets try again.\n\n");
-        return new ExploreScreen(game);
+        //player choose to die
+        return new GameOverScreen(game);
     }
 
     UserInputRequest generateUserInputRequest(Set<Integer> exits) {
@@ -49,7 +49,7 @@ public class ExploreScreen extends SimpleTerminalScene {
             exitsOptions.add(new InputOption(exit.toString(), "go to exit " + exit))
         );
 
-        exitsOptions.add(new InputOption(exitsOptions.size() + 1 + "", "lie and die"));
+        exitsOptions.add(new InputOption("99", "lie and die"));
 
         UserInputRequest userInputRequest = new UserInputRequest(
                 "What are you going to do?",
