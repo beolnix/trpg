@@ -10,6 +10,7 @@ public class Game implements Serializable {
     private static final long serialVersionUID = -6600710799904808819L;
     private String savePath;
     private Pers pers;
+    private int wins;
 
     // for deserealization
     public Game() {
@@ -22,6 +23,7 @@ public class Game implements Serializable {
 
         Game game = (Game) o;
 
+        if (wins != game.wins) return false;
         if (pers != null ? !pers.equals(game.pers) : game.pers != null) return false;
         if (savePath != null ? !savePath.equals(game.savePath) : game.savePath != null) return false;
 
@@ -32,6 +34,7 @@ public class Game implements Serializable {
     public int hashCode() {
         int result = savePath != null ? savePath.hashCode() : 0;
         result = 31 * result + (pers != null ? pers.hashCode() : 0);
+        result = 31 * result + wins;
         return result;
     }
 
@@ -53,5 +56,17 @@ public class Game implements Serializable {
 
     public void setPers(Pers pers) {
         this.pers = pers;
+    }
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public int getWins() {
+        return wins;
+    }
+
+    public void setWins(int wins) {
+        this.wins = wins;
     }
 }
