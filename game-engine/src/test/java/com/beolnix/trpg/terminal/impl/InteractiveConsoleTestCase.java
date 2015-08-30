@@ -1,4 +1,4 @@
-package com.beolnix.trpg;
+package com.beolnix.trpg.terminal.impl;
 
 import com.beolnix.trpg.terminal.SimpleTerminal;
 import com.beolnix.trpg.terminal.impl.InteractiveConsole;

@@ -1,4 +1,4 @@
-package com.beolnix;
+package com.beolnix.trpg.utils;
 
 import com.beolnix.trpg.utils.GameMaster;
 import com.beolnix.trpg.error.Fatal;
