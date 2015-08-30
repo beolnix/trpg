@@ -67,7 +67,7 @@ public class ExploreScreenTestCase {
                 ContentHelper.getContent("/content/area_0.txt") + "\n" +
                 "What are you going to do?: \n" +
                         "     1 - go to exit 1\n" +
-                        "     2 - lie and die\n" +
+                        "     99 - lie and die\n" +
                         "Input: ";
     }
 
