@@ -10,7 +10,7 @@ import com.beolnix.trpg.terminal.impl.InteractiveConsole;
  */
 public abstract class SimpleTerminalScene implements Scene {
 
-    private SimpleTerminal terminal = new InteractiveConsole();
+    private SimpleTerminal terminal = new InteractiveConsole(System.out, System.in);
 
     protected void print(String text) {
         terminal.print(text);
@@ -18,6 +18,10 @@ public abstract class SimpleTerminalScene implements Scene {
 
     protected InputOption askUserInput(UserInputRequest userInputRequest) {
         return terminal.askUserInput(userInputRequest);
+    }
+
+    private void setTerminal(SimpleTerminal terminal) {
+        this.terminal = terminal;
     }
 
 }

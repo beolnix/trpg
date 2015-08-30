@@ -4,42 +4,48 @@ import com.beolnix.trpg.terminal.model.InputOption;
 import com.beolnix.trpg.terminal.model.UserInputRequest;
 import com.beolnix.trpg.terminal.SimpleTerminal;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 
 /**
  * Created by beolnix on 30/08/15.
  */
 public class InteractiveConsole implements SimpleTerminal {
 
+    private final PrintStream out;
+    private final InputStream in;
+
+    public InteractiveConsole(PrintStream out, InputStream in) {
+        this.out = out;
+        this.in = in;
+    }
+
     @Override
     public void print(String text) {
-        System.out.println(text);
+        out.println(text);
     }
 
     public InputOption askUserInput(UserInputRequest userInputRequest) {
         printInputSuggestion(userInputRequest);
         printAvailableOptions(userInputRequest);
-        System.out.print("Input: ");
+        out.print("Input: ");
         String userInput = getValidUserInput(userInputRequest);
 
         InputOption result = prepareInputResult(userInputRequest, userInput);
         if (result != null) {
             return result;
         } else {
-            System.out.println("Something went wrong, lets try one more time.");
+            out.println("Something went wrong, lets try one more time.");
             return askUserInput(userInputRequest);
         }
     }
 
     private void printInputSuggestion(UserInputRequest userInputRequest) {
-        System.out.println(userInputRequest.getDescription() + ": \n");
+        out.println(userInputRequest.getDescription() + ": \n");
     }
 
     private void printAvailableOptions(UserInputRequest userInputRequest) {
         for (InputOption inputOption : userInputRequest.getOptions()) {
-            System.out.println("     " + inputOption.getExpectedInput() + " - " + inputOption.getDescription());
+            out.println("     " + inputOption.getExpectedInput() + " - " + inputOption.getDescription());
         }
     }
 
@@ -61,16 +67,16 @@ public class InteractiveConsole implements SimpleTerminal {
 
     private String getValidUserInput(UserInputRequest userInputRequest) {
         try {
-            BufferedReader bufferRead = new BufferedReader(new InputStreamReader(System.in));
+            BufferedReader bufferRead = new BufferedReader(new InputStreamReader(in));
             String userInput = bufferRead.readLine();
             if (validateInput(userInputRequest, userInput)) {
                 return userInput;
             } else {
-                System.out.println("Incorrect input, please try once again.");
+                out.println("Incorrect input, please try once again.");
                 return getValidUserInput(userInputRequest);
             }
         } catch (IOException e) {
-            System.out.println("Some error occured, lets try once again.");
+            out.println("Some error occured, lets try once again.");
             return getValidUserInput(userInputRequest);
         }
     }
