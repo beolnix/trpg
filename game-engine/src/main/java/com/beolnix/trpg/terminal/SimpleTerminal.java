@@ -10,4 +10,5 @@ public interface SimpleTerminal {
 
     public InputOption askUserInput(UserInputRequest userInputRequest);
     public void print(String text);
+    public void println(String text);
 }

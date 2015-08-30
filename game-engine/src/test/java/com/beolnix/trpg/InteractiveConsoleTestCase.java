@@ -21,11 +21,33 @@ public class InteractiveConsoleTestCase {
     @Test
     public void printTest() {
         ByteArrayOutputStream os = new ByteArrayOutputStream();
-        PrintStream ps = new PrintStream(os);
-        SimpleTerminal terminal = new InteractiveConsole(ps, System.in);
+        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(os));
+
+        byte[] buf = "".getBytes();
+        InputStreamReader is = new InputStreamReader(new ByteArrayInputStream(buf));
+        BufferedReader reader = new BufferedReader(is);
+
+        SimpleTerminal terminal = new InteractiveConsole(writer, reader);
 
         String expectedString = "expected some";
         terminal.print(expectedString);
+
+        assertEquals(expectedString, os.toString());
+    }
+
+    @Test
+    public void printlnTest() {
+        ByteArrayOutputStream os = new ByteArrayOutputStream();
+        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(os));
+
+        byte[] buf = "".getBytes();
+        InputStreamReader is = new InputStreamReader(new ByteArrayInputStream(buf));
+        BufferedReader reader = new BufferedReader(is);
+
+        SimpleTerminal terminal = new InteractiveConsole(writer, reader);
+
+        String expectedString = "expected some";
+        terminal.println(expectedString);
 
         assertEquals(expectedString + "\n", os.toString());
     }
@@ -33,14 +55,15 @@ public class InteractiveConsoleTestCase {
     @Test
     public void askUserInputTestLimitedWithOptions() {
         ByteArrayOutputStream os = new ByteArrayOutputStream();
-        PrintStream ps = new PrintStream(os);
+        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(os));
 
         String expectedInput = "2";
 
         byte[] buf = expectedInput.getBytes();
-        ByteArrayInputStream is = new ByteArrayInputStream(buf);
+        InputStreamReader is = new InputStreamReader(new ByteArrayInputStream(buf));
+        BufferedReader reader = new BufferedReader(is);
 
-        SimpleTerminal terminal = new InteractiveConsole(ps, is);
+        SimpleTerminal terminal = new InteractiveConsole(writer, reader);
 
         InputOption inputOption = terminal.askUserInput(getImageUserInputRequest());
         assertEquals(expectedInput, inputOption.getActualInput());
@@ -49,16 +72,35 @@ public class InteractiveConsoleTestCase {
     @Test
     public void askUserInputNonLimitedTest() {
         ByteArrayOutputStream os = new ByteArrayOutputStream();
-        PrintStream ps = new PrintStream(os);
+        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(os));
 
-        String expectedInput = "someInput";
+        String expectedInput = "someIntput";
 
         byte[] buf = expectedInput.getBytes();
-        ByteArrayInputStream is = new ByteArrayInputStream(buf);
+        InputStreamReader is = new InputStreamReader(new ByteArrayInputStream(buf));
+        BufferedReader reader = new BufferedReader(is);
 
-        SimpleTerminal terminal = new InteractiveConsole(ps, is);
+        SimpleTerminal terminal = new InteractiveConsole(writer, reader);
 
         InputOption inputOption = terminal.askUserInput(getNameUserInputRequest());
+        assertEquals(expectedInput, inputOption.getActualInput());
+    }
+
+    @Test
+    public void askUserInputIncorrectTest() {
+        ByteArrayOutputStream os = new ByteArrayOutputStream();
+        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(os));
+
+        String expectedInput = "2";
+        String input = "7\n2\n";
+
+        byte[] buf = input.getBytes();
+        InputStreamReader is = new InputStreamReader(new ByteArrayInputStream(buf));
+        BufferedReader bufreader = new BufferedReader(is);
+
+        SimpleTerminal terminal = new InteractiveConsole(writer, bufreader);
+
+        InputOption inputOption = terminal.askUserInput(getImageUserInputRequest());
         assertEquals(expectedInput, inputOption.getActualInput());
     }
 
