@@ -82,7 +82,7 @@ public class BattleScreen extends SimpleTerminalScene {
             return true;
         } else {
             Random random = new Random();
-            int result = random.nextInt(4);
+            int result = random.nextInt(2);
             return result == 1;
         }
     }
