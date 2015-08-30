@@ -1,0 +1,29 @@
+
+         XXXXXXXXXXXXXXXXXXXXXX
+     XXXXXXX                 XXXXXX
+    XXXX                         XXXX
+   XXXX                            XXX
+  XXXX                              XXX
+  XXX                                XXX
+ XX                                  XXXXX
+ XX                                   XXXXXXX
+XXX                                       XXXXXXXXXXXXXXXXXX
+XXX
+XX
+XX       Player
+XX                                                 A1
+XX
+XX
+XX
+XXX                                             XXXXXXXXXXXXX
+XXX                                          XXXX
+XXXX                                        XXX
+ XXXX                                      XXX
+  XXXX                                     XXX
+   XXXXX                                  XXXX
+     XXXXX                               XXXX
+       XXXXXXX                          XXX
+        XXXXXXXX                     XXXX
+             XXXXXXXXXXXXXXXXXXXXXXXXXXX
+               XXXXXXXXXXXXXXXXXX  XX
+

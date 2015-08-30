@@ -1,0 +1,35 @@
+                                       XXXXXXXXXXXXX                                         XXXXXXXX
+                                  XXXXXXXXXXXXXXXXXXXXXXXXXXXX                            XXXXXXXXXXXXXX
+                               XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX          XXXXXXXXXXXXXXXXXXXXXXXXXXXX
+                             XXXXXXXXXX            XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+                          XXXXXXXX                         XXXXXXXXXXXXXXXXXXXXXXXX
+                        XXXXXX                                   XXXXXXX
+                      XXXXXX
+                    XXXXXX
+                  XXXXXX                                           A0
+                  XXXX                                                                            XXXXXX
+                 XXXX                                                                  XXXXXXXXXXXXXXXXX
+                XXXX                                                           XXXXXXXXXXXXXXXXX
+              XXXXX                                                      XXXXXXXXXXXXXXXXXXX
+             XXXXX                                                  XXXXXXXXXXXX
+          XXXXXXX                                                  XXXXXXXXX
+XXXXXXXXXXXXXXXX                   Player                         XXXXXXX
+XXXXXXXXXXXXXX                                                    XXXXXX
+                                                                  XXXXXXXXXXXXXX
+                                                                    XXXXXXXXXXXXXXXXXXXXXXX
+    A0                                                                        XXXXXXXXXXXXXXX
+                                                                                          XXXXXXXXXXXXX
+                                                                   A0                           XXXXX
+
+XXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXX                              XXXXXXXXX
+              XXXX                           XXXXXXXXXXXXXXXXXXXXXXXXX
+               XXXX                         XXXXXX  XXXXXXXXXXXXXXXXXXXXXXX
+                XXXXX                      XXXXXX       XXXXXXXXXXXXXXXXXXXXXXXX
+                 XXXXX                   XXXXXX                     XXXXXXXXXXXXX XXXXX
+                  XXXXXX                XXXXX                          XXXXXXXXXXXXXXXXXXXXXXXX
+                    XXXXXX             XXXXX                                       XXXXXXXXXXXX
+                      XXXXXXX       XXXXXX
+                        XXXXXXXXXXXXXXXX
+                        XXXXXXXXXXXXXXX
+

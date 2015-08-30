@@ -10,6 +10,7 @@ public class Pers implements Serializable {
 
     private String name;
     private int image;
+    private int position;
 
     public Pers() {
     }
@@ -21,6 +22,8 @@ public class Pers implements Serializable {
 
         Pers pers = (Pers) o;
 
+        if (image != pers.image) return false;
+        if (position != pers.position) return false;
         if (name != null ? !name.equals(pers.name) : pers.name != null) return false;
 
         return true;
@@ -28,7 +31,10 @@ public class Pers implements Serializable {
 
     @Override
     public int hashCode() {
-        return name != null ? name.hashCode() : 0;
+        int result = name != null ? name.hashCode() : 0;
+        result = 31 * result + image;
+        result = 31 * result + position;
+        return result;
     }
 
     public String getName() {
@@ -45,5 +51,13 @@ public class Pers implements Serializable {
 
     public void setImage(int image) {
         this.image = image;
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
+    public void setPosition(int position) {
+        this.position = position;
     }
 }

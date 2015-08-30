@@ -1,9 +1,7 @@
 package com.beolnix.trpg;
 
 import com.beolnix.trpg.model.Game;
-import com.beolnix.trpg.scene.ExploreScreen;
-import com.beolnix.trpg.scene.SelectCharacterScreen;
-import com.beolnix.trpg.scene.SplashScreen;
+import com.beolnix.trpg.scene.*;
 
 /**
  * Created by beolnix on 30/08/15.
@@ -17,7 +15,15 @@ public class GameScenario {
 
         GameMaster.saveGame(game, game.getSavePath());
 
-        new ExploreScreen(game).play();
+        Scene nextScene = new ExploreScreen(game);
+        do {
+            nextScene = nextScene.play();
+            if (!(nextScene instanceof BattleScreen)) {
+                GameMaster.saveGame(game, game.getSavePath());
+            }
+        } while (!(nextScene instanceof GameOverScreen));
+
+        nextScene.play();
 
     }
 }

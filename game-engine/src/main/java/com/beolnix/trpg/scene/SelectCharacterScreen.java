@@ -7,17 +7,16 @@ import com.beolnix.trpg.model.InputOption;
 import com.beolnix.trpg.model.Pers;
 import com.beolnix.trpg.model.UserInputRequest;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 /**
  * Created by beolnix on 30/08/15.
  */
 public class SelectCharacterScreen implements Scene {
 
     private final Game game;
-    private final UserInputRequest imageInputRequest =
-            new UserInputRequest("Enter",
-                    new InputOption[]{new InputOption("1", "Skip"), new InputOption("2", "Accept")}
-            );
-    private final UserInputRequest nameInputRequest = new UserInputRequest("Enter character name", new InputOption[]{});
 
     public SelectCharacterScreen(Game game) {
         this.game = game;
@@ -42,7 +41,7 @@ public class SelectCharacterScreen implements Scene {
     }
 
     private String askName() {
-        return TerminalHelper.askUserInput(nameInputRequest);
+        return TerminalHelper.askUserInput(getNameUserInputRequest());
     }
 
     private Pers selectCharacter() {
@@ -50,7 +49,7 @@ public class SelectCharacterScreen implements Scene {
         System.out.println("Select character.");
         while (true) {
             printImage(currentImage);
-            String userInput = TerminalHelper.askUserInput(imageInputRequest);
+            String userInput = TerminalHelper.askUserInput(getImageUserInputRequest());
 
             if ("1".equals(userInput.trim())) {
                 // display images in a cycle forever
@@ -75,5 +74,19 @@ public class SelectCharacterScreen implements Scene {
     private void printImage(int imageNumber) {
         String data = ContentHelper.getContent("/content/character_" + imageNumber + ".txt");
         System.out.println(data);
+    }
+
+    private UserInputRequest getNameUserInputRequest() {
+        return new UserInputRequest("Enter character name", Collections.emptyList());
+    }
+
+    private UserInputRequest getImageUserInputRequest() {
+        List<InputOption> inputOptionList = new ArrayList<>();
+        inputOptionList.add(new InputOption("1", "Skip"));
+        inputOptionList.add(new InputOption("2", "Accept"));
+
+        return new UserInputRequest("Enter",
+                inputOptionList
+        );
     }
 }

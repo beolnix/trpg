@@ -1,13 +1,16 @@
 package com.beolnix.trpg.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by beolnix on 30/08/15.
  */
 public class UserInputRequest {
     private final String description;
-    private final InputOption[] options;
+    private final List<InputOption> options;
 
-    public UserInputRequest(String description, InputOption[] options) {
+    public UserInputRequest(String description, List<InputOption> options) {
         this.description = description;
         this.options = options;
     }
@@ -16,7 +19,7 @@ public class UserInputRequest {
         return description;
     }
 
-    public InputOption[] getOptions() {
+    public List<InputOption> getOptions() {
         return options;
     }
 }

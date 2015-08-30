@@ -36,7 +36,7 @@ public class TerminalHelper {
     }
 
     private static boolean validateInput(UserInputRequest userInputRequest, String userInput) {
-        if (userInputRequest.getOptions().length < 1) {
+        if (userInputRequest.getOptions().size() < 1) {
             return true;
         }
         for (InputOption inputOption : userInputRequest.getOptions()) {
