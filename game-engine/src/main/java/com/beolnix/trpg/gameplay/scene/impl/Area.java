@@ -35,13 +35,13 @@ public class Area {
     }
 
     private static Set<Integer> identifyExits(String asciiMap) {
-        Pattern p = Pattern.compile("A\\d");
+        Pattern p = Pattern.compile("EXIT:\\d{1,2}");
         Matcher m = p.matcher(asciiMap);
         Set<Integer> exits = new HashSet<>();
         while (m.find()) {
             String exitLiteral = m.group();
             if (exitLiteral != null) {
-                String positionStr = exitLiteral.replace("A", "").trim();
+                String positionStr = exitLiteral.replace("EXIT:", "").trim();
                 Integer exitPositionNumber = Integer.parseInt(positionStr);
                 exits.add(exitPositionNumber);
             }

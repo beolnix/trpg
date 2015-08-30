@@ -6,7 +6,7 @@
                         XXXXXX                                   XXXXXXX
                       XXXXXX
                     XXXXXX
-                  XXXXXX                                           A0
+                  XXXXXX                                           EXIT:0
                   XXXX                                                                            XXXXXX
                  XXXX                                                                  XXXXXXXXXXXXXXXXX
                 XXXX                                                           XXXXXXXXXXXXXXXXX
@@ -17,9 +17,9 @@ XXXXXXXXXXXXXXXX                   Player                         XXXXXXX
 XXXXXXXXXXXXXX                                                    XXXXXX
                                                                   XXXXXXXXXXXXXX
                                                                     XXXXXXXXXXXXXXXXXXXXXXX
-    A0                                                                        XXXXXXXXXXXXXXX
+    EXIT:0                                                                        XXXXXXXXXXXXXXX
                                                                                           XXXXXXXXXXXXX
-                                                                   A0                           XXXXX
+                                                                   EXIT:17                          XXXXX
 
 XXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXX                              XXXXXXXXX

@@ -22,6 +22,11 @@ public class ExploreScreen extends SimpleTerminalScene {
     @Override
     public Scene play() {
         int position = game.getPers().getPosition();
+
+        if (position > 16) {
+            return new FinishGameScreen(game);
+        }
+
         Area area = Area.loadAreaForPosition(position);
         println(area.getDescription());
         println(area.getAsciiMap());

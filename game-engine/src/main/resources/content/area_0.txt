@@ -11,7 +11,7 @@ XXX                                       XXXXXXXXXXXXXXXXXX
 XXX
 XX
 XX       Player
-XX                                                 A1
+XX                                                 EXIT:1
 XX
 XX
 XX

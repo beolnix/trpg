@@ -12,15 +12,9 @@ import com.beolnix.trpg.model.Game;
 public class GameScenario {
 
     public static void run(Game game) {
-        Scene splashScreen = new SplashScreen(game);
-        splashScreen.play();
+        playSceneWithDelay(new SplashScreen(game), 2);
 
-        delay(2, splashScreen.getTerminal());
-
-        Scene selectScene = new SelectCharacterScreen(game);
-        selectScene.play();
-
-        delay(1, selectScene.getTerminal());
+        playSceneWithDelay(new SelectCharacterScreen(game), 1);
 
         GameMaster.saveGame(game, game.getSavePath());
 
@@ -29,15 +23,17 @@ public class GameScenario {
         // indefinitely walking between scenes until next one is gameover or finish game scene
         // saving the game between scenes
         do {
-            nextScene = nextScene.play();
-            if (!isItBattle(nextScene)) {
-                GameMaster.saveGame(game, game.getSavePath());
-            }
-            delay(1, nextScene.getTerminal());
+            nextScene = playSceneWithDelay(nextScene, 1);
+            GameMaster.saveGame(game, game.getSavePath());
         } while (!isItTheEnd(nextScene));
 
         nextScene.play();
+    }
 
+    private static Scene playSceneWithDelay(Scene scene, int delay) {
+        Scene nextScene = scene.play();
+        delay(2, scene.getTerminal());
+        return nextScene;
     }
 
     private static void delay(int secs, SimpleTerminal terminal) {
@@ -57,10 +53,6 @@ public class GameScenario {
         } catch (InterruptedException e) {
             //nop
         }
-    }
-
-    private static boolean isItBattle(Scene scene) {
-        return scene instanceof BattleScreen;
     }
 
     private static boolean isItTheEnd(Scene scene) {
