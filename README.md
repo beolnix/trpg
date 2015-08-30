@@ -23,6 +23,7 @@ Use --help to see all available command line parameters
 
 - java 1.8 is required
 - maven 3.x
+- both java and mvn programs should be in $PATH
 
 ### Instruction
 
