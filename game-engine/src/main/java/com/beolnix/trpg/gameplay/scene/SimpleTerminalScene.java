@@ -36,6 +36,7 @@ public abstract class SimpleTerminalScene implements Scene {
         this.terminal = terminal;
     }
 
+    @Override
     public SimpleTerminal getTerminal() {
         return terminal;
     }

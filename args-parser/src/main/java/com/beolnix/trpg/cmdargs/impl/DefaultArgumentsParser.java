@@ -25,6 +25,7 @@ public class DefaultArgumentsParser implements ArgumentsParser {
         this.supportedCommandLineArguments.add(helpCommandLineArgument);
     }
 
+    @Override
     public Map<CommandLineArgument, PassedArgument> transform(String[] args) throws UnknownFlag {
         if (args.length == 0) {
             return Collections.emptyMap();
@@ -46,10 +47,12 @@ public class DefaultArgumentsParser implements ArgumentsParser {
         return passedArgumentMap;
     }
 
+    @Override
     public Set<CommandLineArgument> getSupportedCommandLineArguments() {
         return supportedCommandLineArguments;
     }
 
+    @Override
     public String getHelpMessage() {
         return HelpPrinter.printHelp(supportedCommandLineArguments);
     }

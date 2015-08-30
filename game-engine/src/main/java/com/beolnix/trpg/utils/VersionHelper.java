@@ -11,6 +11,8 @@ import java.util.jar.Manifest;
 public class VersionHelper {
     private final static String versionLabel = "Implementation-Version";
 
+    private VersionHelper() {}
+
     public static String getVersion() {
         try {
             Manifest manifest = getManifest();

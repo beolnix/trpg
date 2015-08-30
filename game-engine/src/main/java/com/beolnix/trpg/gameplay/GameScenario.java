@@ -11,6 +11,8 @@ import com.beolnix.trpg.model.Game;
  */
 public class GameScenario {
 
+    private GameScenario() {}
+
     public static void run(Game game) {
         playSceneWithDelay(new SplashScreen(game), 2);
 
@@ -32,13 +34,13 @@ public class GameScenario {
 
     private static Scene playSceneWithDelay(Scene scene, int delay) {
         Scene nextScene = scene.play();
-        delay(2, scene.getTerminal());
+        delay(delay, scene.getTerminal());
         return nextScene;
     }
 
     private static void delay(int secs, SimpleTerminal terminal) {
         try {
-            long delay = secs * 1000;
+            long delay = secs * 1000L;
             long start = System.currentTimeMillis();
 
             while (true) {

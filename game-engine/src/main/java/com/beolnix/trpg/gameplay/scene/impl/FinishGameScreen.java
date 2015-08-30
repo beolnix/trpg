@@ -20,7 +20,6 @@ public class FinishGameScreen extends SimpleTerminalScene {
     @Override
     public Scene play() {
 
-
         println(ContentHelper.getContent("/content/finish_screen.txt"));
 
         return null;

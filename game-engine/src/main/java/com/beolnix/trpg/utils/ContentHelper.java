@@ -9,6 +9,9 @@ import java.util.stream.Collectors;
  * Created by beolnix on 30/08/15.
  */
 public class ContentHelper {
+
+    private ContentHelper() {}
+
     public static String getContent(String localContentPath) {
         InputStream is = ContentHelper.class.getResourceAsStream(localContentPath);
         BufferedReader buffer = new BufferedReader(new InputStreamReader(is));

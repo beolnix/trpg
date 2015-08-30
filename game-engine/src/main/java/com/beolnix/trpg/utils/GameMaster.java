@@ -14,6 +14,8 @@ import java.util.UUID;
  */
 public class GameMaster {
 
+    private GameMaster() {}
+
     public static Game loadOrCreateGame() {
         String name = UUID.randomUUID().toString();
         return loadOrCreateGame("./" + name + ".xml");

@@ -29,6 +29,7 @@ public class InteractiveConsole implements SimpleTerminal {
         }
     }
 
+    @Override
     public void println(String text) {
         try {
             writer.write(text + "\n");
@@ -38,6 +39,7 @@ public class InteractiveConsole implements SimpleTerminal {
         }
     }
 
+    @Override
     public InputOption askUserInput(UserInputRequest userInputRequest) {
         printInputSuggestion(userInputRequest);
         printAvailableOptions(userInputRequest);
@@ -64,7 +66,7 @@ public class InteractiveConsole implements SimpleTerminal {
     }
 
     private InputOption prepareInputResult(UserInputRequest userInputRequest, String userInput) {
-        if (userInputRequest.getOptions().size() < 1 && userInput.length() > 0) {
+        if (userInputRequest.getOptions().isEmpty() && userInput.length() > 0) {
             InputOption inputOption = new InputOption("", "");
             inputOption.setActualInput(userInput);
             return inputOption;
@@ -95,7 +97,7 @@ public class InteractiveConsole implements SimpleTerminal {
     }
 
     private boolean validateInput(UserInputRequest userInputRequest, String userInput) {
-        if (userInputRequest.getOptions().size() < 1 && userInput.length() > 0) {
+        if (userInputRequest.getOptions().isEmpty() && userInput.length() > 0) {
             return true;
         }
         for (InputOption inputOption : userInputRequest.getOptions()) {

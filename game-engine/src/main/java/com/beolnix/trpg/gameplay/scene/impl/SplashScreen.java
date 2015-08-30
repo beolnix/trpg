@@ -17,6 +17,7 @@ public class SplashScreen extends SimpleTerminalScene {
         this.game = game;
     }
 
+    @Override
     public Scene play() {
         println(data);
         return new SelectCharacterScreen(game);
