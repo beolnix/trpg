@@ -31,9 +31,11 @@ public class BattleScreen extends SimpleTerminalScene {
         if (isThereAnyAlien()) {
             boolean win = letsTheFightBegin();
             if (win) {
+                println("Your answer is correct. Alien let you go and you pass through.");
                 game.setWins(game.getWins() + 1);
                 return goNext();
             } else {
+                println("Your answer is incorrect. Alien becames crazy and kill you.");
                 return gameOver();
             }
         } else {
@@ -51,9 +53,7 @@ public class BattleScreen extends SimpleTerminalScene {
     }
 
     private boolean letsTheFightBegin() {
-        println("You faced an alien on your way.");
         println(ContentHelper.getContent("/content/alien.txt"));
-        println("But it is intelligent. It doesn't want to fight with you. It asks you a puzzle instead.");
 
         Question question = Quiz.getRandomQuestion();
         UserInputRequest inputRequest = createInputRequest(question);
