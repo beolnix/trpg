@@ -16,7 +16,7 @@
         <dependency>
             <groupId>com.beolnix</groupId>
             <artifactId>game-engine</artifactId>
-            <version>0.1-SNAPSHOT</version>
+            <version>${project.version}</version>
         </dependency>
 
     </dependencies>
