@@ -39,7 +39,7 @@ Yes; No
 No
 =========================================================
 What is the world's most popular first name?
-Muhammad, John, Boris
+Muhammad; John; Boris
 Muhammad
 =========================================================
 When a burning cigarette is inhaled, what is the temperature at its tip?

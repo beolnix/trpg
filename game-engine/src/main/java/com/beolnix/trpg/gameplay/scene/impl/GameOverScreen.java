@@ -11,7 +11,7 @@ public class GameOverScreen extends SimpleTerminalScene {
 
     @Override
     public Scene play() {
-        print(ContentHelper.getContent("/content/game_over.txt"));
+        println(ContentHelper.getContent("/content/game_over.txt"));
         return null;
     }
 }

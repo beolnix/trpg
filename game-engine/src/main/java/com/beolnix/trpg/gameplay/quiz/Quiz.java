@@ -4,6 +4,7 @@ import com.beolnix.trpg.gameplay.quiz.model.Question;
 import com.beolnix.trpg.utils.ContentHelper;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * Created by beolnix on 30/08/15.
@@ -25,6 +26,12 @@ public class Quiz {
 
     public static Quiz getInstance() {
         return instance;
+    }
+
+    public static Question getRandomQuestion() {
+        Random random = new Random();
+        int questionNumber = random.nextInt(instance.questions.size());
+        return instance.questions.get(questionNumber);
     }
 
 
