@@ -4,7 +4,7 @@
 0.1 - current stable version.
 
 ## Install And Run binaries
-- Download binary distrib from: http://nexus.beolnix.com/service/local/repositories/releases/content/com/beolnix/trpg-distr/0.1/trpg-distr-0.1.zip
+- Download binary distrib from here: [trpg-distr-0.1.zip](http://nexus.beolnix.com/service/local/repositories/releases/content/com/beolnix/trpg-distr/0.1/trpg-distr-0.1.zip)
 - Unpack
 - run trpg.sh
 
