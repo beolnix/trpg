@@ -41,29 +41,29 @@ Project consist of the following modules
 
 ### game-engine module
 
-#### com.beolnix.trpg.App
+##### com.beolnix.trpg.App
 It is the entry point.
 App class reads command line arguments, loads the game from file if it is required and launches com.beolnix.trpg.gameplay.GameScenario class.
 
-#### com.beolnix.trpg.gameplay.GameScenario
+##### com.beolnix.trpg.gameplay.GameScenario
 The class describes how the game should go step by step.
 The game itslef is just sequence of Scenes launched by **GameScenario** one by one.
 
-#### com.beolnix.trpg.gameplay.scene.Scene
+##### com.beolnix.trpg.gameplay.scene.Scene
 Each screen in the game defined as the implementation of this interface and Used in GameScenario.
 
-#### com.beolnix.trpg.gameplay.scene.SimpleTerminalScene
+##### com.beolnix.trpg.gameplay.scene.SimpleTerminalScene
 Each Scene must extend this archetype to correctly work with the **Terminal**
 
-#### com.beolnix.trpg.terminal.SimpleTerminal
+##### com.beolnix.trpg.terminal.SimpleTerminal
 Used as the abstraction layer to simplify testing of the Scenes
 
 ### args-parser module
 
-#### com.beolnix.trpg.cmdargs.ArgumentsParser
+##### com.beolnix.trpg.cmdargs.ArgumentsParser
 Main Interface of the module. Used to register supported command line arguments and to process the input.
 
-### trpg-distr
+### trpg-distr module
 Creates game distr as a zip archive packed with game-engine and bash script.
 Automatically corrects project version number in the bash script.
 
