@@ -4,9 +4,9 @@
 0.1 - current stable version.
 
 ## Install And Run binaries
-- Download binary distrib from: http://nexus.beolnix.com/service/local/repositories/releases/content/com/beolnix/trpg-distr/0.1/trpg-distr-0.1.zip
-- Unpack
-- run trpg.sh
+1. Download binary distrib from here: [trpg-distr-0.1.zip](http://nexus.beolnix.com/service/local/repositories/releases/content/com/beolnix/trpg-distr/0.1/trpg-distr-0.1.zip)
+2. Unpack
+3. run trpg.sh
 
 ## Parameters
 Use --help to see all available command line parameters
@@ -19,8 +19,8 @@ Only java 1.8 is required
 
 ### Instruction
 
-- git clone git@github.com:beolnix/trpg.git
-- mvn clean install
+1. git clone git@github.com:beolnix/trpg.git
+2. mvn clean install
 
 Game distr should be in ${project.basedir}/target/trpg-distr-${project.version}.zip
 
