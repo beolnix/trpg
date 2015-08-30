@@ -19,7 +19,7 @@ public class GameScenario {
 
         Scene nextScene = new ExploreScreen(game);
 
-        // indefenetly walking between scenes until next one is gameover or finish game scene
+        // indefinitely walking between scenes until next one is gameover or finish game scene
         // saving the game between scenes
         do {
             nextScene = nextScene.play();
