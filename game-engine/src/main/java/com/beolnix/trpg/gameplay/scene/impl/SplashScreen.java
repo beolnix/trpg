@@ -10,7 +10,7 @@ import com.beolnix.trpg.model.Game;
  */
 public class SplashScreen extends SimpleTerminalScene {
 
-    private static final String data = ContentHelper.getContent("/content/splashScreen.txt");
+    private static final String data = ContentHelper.getContent("/content/splash_screen.txt");
     private final Game game;
 
     public SplashScreen(Game game) {

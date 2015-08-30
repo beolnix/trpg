@@ -1,13 +1,13 @@
 package com.beolnix.trpg.gameplay.scene.impl;
 
 import com.beolnix.trpg.gameplay.scene.Scene;
-import com.beolnix.trpg.gameplay.scene.SimpleTerminalScene;
-import com.beolnix.trpg.terminal.SimpleTerminal;
 import com.beolnix.trpg.terminal.impl.InteractiveConsole;
+import com.beolnix.trpg.utils.ContentHelper;
 import org.junit.Test;
 
 import java.io.*;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertNotNull;
 
@@ -15,6 +15,8 @@ import static org.junit.Assert.assertNotNull;
  * Created by beolnix on 30/08/15.
  */
 public class SplashScreenTestCase {
+
+    ByteArrayOutputStream os = new ByteArrayOutputStream();
 
     @Test
     public void playTest() {
@@ -24,10 +26,10 @@ public class SplashScreenTestCase {
 
         assertNotNull(scene);
         assertTrue(scene instanceof SelectCharacterScreen);
+        assertEquals(ContentHelper.getContent("/content/splash_screen.txt") + "\n", os.toString());
     }
 
     private InteractiveConsole getConsole() {
-        ByteArrayOutputStream os = new ByteArrayOutputStream();
         BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(os));
 
         byte[] buf = "".getBytes();
