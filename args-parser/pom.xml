@@ -14,6 +14,11 @@
 
     <dependencies>
         <dependency>
+            <groupId>com.beolnix</groupId>
+            <artifactId>game-engine</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
         </dependency>
