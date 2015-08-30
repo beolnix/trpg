@@ -1,0 +1,40 @@
+                   XXX   XXXX XXXX
+              XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX XXXXXXXXXXXX XX
+            XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+          XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+        XXXXXXXXXXXXXXXXXXXX                              XXXX XXXXXXXX
+     X XXXXXX XXX XX                                               XXXXX
+     XXXXX XXXXXXXX                                                  XXXXX
+    XXXXXXXXXX                                                         XXXXX
+   XXXXXXXX                                                             XXXXX
+   XXXXXXX                                                              XXXXXX
+   XXXXX                                                                 XXXXX
+  XXXXX                       Player                                     XXXXX
+ XXXXX                                                                   XXXXX
+ X XX                                                                     XXXXX
+ XXXX                                                                     XXXXX
+ XXX                                                                      XXXXX
+ XXX                                                                       XXXX
+ XXX                                                                       XXXX
+ XXX                                                                       XXXX
+ XXX                                                                       XXXX
+XXXX                                                                      XXXX
+XXXX                                                                     XXXXX
+ XXXX                                                                 XXXXXXX
+  XXXX                                                             XXXXXXXXXX
+   XXXXX                                                        XXXXXXXXXXX
+    XXXXX                                                  XXXXXXXXXXXX
+      XXXXXX                                        XXXXXXXXXXXXXXX
+        XXXXXX                             XXXXXXXXXXXXXXXXXX
+         XXXXXX                          XXXXXXXXXXXXXXXX
+           XXXXX       EXIT:5           XXXXXX
+            XXXXX                       XXXXXX
+             XXXX                       XXXX
+             XXXX                       XXX
+            XXXXX                       XXX
+           XXXXXX                       XXX
+           XXXXX                        XX
+          XXXXX
+         XXXX
+         X
+

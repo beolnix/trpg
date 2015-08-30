@@ -44,7 +44,7 @@ public class BattleScreen extends SimpleTerminalScene {
     }
 
     private Scene gameOver() {
-        return new GameOverScreen();
+        return new GameOverScreen(game);
     }
 
     private Scene goNext() {

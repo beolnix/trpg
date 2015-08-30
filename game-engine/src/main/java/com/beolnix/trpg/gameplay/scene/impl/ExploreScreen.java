@@ -23,7 +23,7 @@ public class ExploreScreen extends SimpleTerminalScene {
     public Scene play() {
         int position = game.getPers().getPosition();
 
-        if (position > 16) {
+        if (position > 12) {
             return new FinishGameScreen(game);
         }
 
@@ -38,7 +38,8 @@ public class ExploreScreen extends SimpleTerminalScene {
             return new BattleScreen(game, userInputNumber);
         }
 
-        return new GameOverScreen();
+        println("\n\n Something went wrong, lets try again.\n\n");
+        return new ExploreScreen(game);
     }
 
     UserInputRequest generateUserInputRequest(Set<Integer> exits) {

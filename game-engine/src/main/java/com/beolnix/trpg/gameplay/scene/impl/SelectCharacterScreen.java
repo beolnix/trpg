@@ -30,6 +30,8 @@ public class SelectCharacterScreen extends SimpleTerminalScene {
             pers = selectCharacter();
             pers.setName(askName());
             game.setPers(pers);
+            println("\n\nGame is saved to '" + game.getSavePath() + "'," +
+                    " use -g command line argument to load the game from the file.\n\n");
         } else {
             displayWelcome();
         }

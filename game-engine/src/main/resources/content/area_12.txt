@@ -1,0 +1,27 @@
+      XX                             XX
+      XX        EXIT:11              XX
+      XX                             XX
+     XXX                             XX
+     XXX                             XX
+     XXX                             XX
+     XXX                             XXX
+     XXX                              XX
+     XXX                              XXX
+     XXX                               XX
+     XXX          Player               XXX
+     XXX                                XX
+     XX                                 XXX
+    XXX                                 XXX
+    XXX                                  XX
+   XXXX                                  XXX
+   XXXX                                   XX
+   XXX                                    XX
+   XXX                                    XXX
+   XXX                                    XXX
+  XXXX          EXIT:13                    XX
+ XXXX                                      XX
+ XXX                                       XXX
+ XXX                                        XX
+XXX                                          XX
+                                             XX
+

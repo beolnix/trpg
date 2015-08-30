@@ -6,7 +6,7 @@
                         XXXXXX                                   XXXXXXX
                       XXXXXX
                     XXXXXX
-                  XXXXXX                                           EXIT:0
+                  XXXXXX                                           EXIT:2
                   XXXX                                                                            XXXXXX
                  XXXX                                                                  XXXXXXXXXXXXXXXXX
                 XXXX                                                           XXXXXXXXXXXXXXXXX
@@ -19,7 +19,7 @@ XXXXXXXXXXXXXX                                                    XXXXXX
                                                                     XXXXXXXXXXXXXXXXXXXXXXX
     EXIT:0                                                                        XXXXXXXXXXXXXXX
                                                                                           XXXXXXXXXXXXX
-                                                                   EXIT:17                          XXXXX
+                                                                   EXIT:3                          XXXXX
 
 XXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXX                              XXXXXXXXX

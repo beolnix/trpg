@@ -1,0 +1,31 @@
+                           XX                         XXX
+                          XXX                         XXX
+                          XXX                         XXX
+                         XXXX                         XXX
+                        XXXX       EXIT:4             XXXX
+                       XXXXX                           XXXX
+                      XXXXX                             XXX
+                     XXXXX                               XXX
+                    XXXXX                                  XX
+                  XXXXXX                                    XXXX
+                 XXXXXX                                      XXXXX
+              XXXXXXX                                          XXXXXX
+XXXXXXXXXXXXXXXXXXX                                             XXXXXXXXXX
+XXXXXXXXXXXXXXXX                                                  XXXXXXXXXXXXXX
+                                                                   XXXXXXXXXXXXX
+
+                                    Player
+
+
+     EXIT:11
+                                                                    EXIT:7
+
+
+
+                              XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+                        XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+                 XXXXXXXXXXXXXXXXXXX XXXXXX             XXXXXXXXXXXXXXXX
+          XXXXXXXXXXXXXXX                                     XXXXXXXXXXXXXX
+ XXXXXXXXXXXXXXXXXX                                                XXXXXXXXXXXXX
+XXXXXXXXX XX
+
