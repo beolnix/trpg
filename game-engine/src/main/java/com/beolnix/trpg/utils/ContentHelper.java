@@ -1,4 +1,4 @@
-package com.beolnix.trpg;
+package com.beolnix.trpg.utils;
 
 import java.io.BufferedReader;
 import java.io.InputStream;

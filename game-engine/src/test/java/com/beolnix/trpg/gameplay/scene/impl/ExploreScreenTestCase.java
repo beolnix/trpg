@@ -1,7 +1,8 @@
-package com.beolnix.trpg.scene;
+package com.beolnix.trpg.gameplay.scene.impl;
 
-import com.beolnix.trpg.model.InputOption;
-import com.beolnix.trpg.model.UserInputRequest;
+import com.beolnix.trpg.gameplay.scene.impl.ExploreScreen;
+import com.beolnix.trpg.terminal.model.InputOption;
+import com.beolnix.trpg.terminal.model.UserInputRequest;
 import org.junit.Test;
 
 import static org.junit.Assert.assertTrue;

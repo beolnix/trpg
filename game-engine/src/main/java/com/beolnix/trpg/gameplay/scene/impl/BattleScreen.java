@@ -1,11 +1,13 @@
-package com.beolnix.trpg.scene;
+package com.beolnix.trpg.gameplay.scene.impl;
 
+import com.beolnix.trpg.gameplay.scene.Scene;
+import com.beolnix.trpg.gameplay.scene.SimpleTerminalScene;
 import com.beolnix.trpg.model.Game;
 
 /**
  * Created by beolnix on 30/08/15.
  */
-public class BattleScreen implements Scene {
+public class BattleScreen extends SimpleTerminalScene {
 
     private final Integer nextPosition;
     private final Game game;

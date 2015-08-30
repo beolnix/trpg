@@ -1,6 +1,6 @@
 package com.beolnix;
 
-import com.beolnix.trpg.GameMaster;
+import com.beolnix.trpg.utils.GameMaster;
 import com.beolnix.trpg.error.Fatal;
 import com.beolnix.trpg.model.Game;
 import com.beolnix.trpg.model.Pers;

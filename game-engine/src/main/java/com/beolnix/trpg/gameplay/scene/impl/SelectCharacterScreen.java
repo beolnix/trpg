@@ -1,11 +1,12 @@
-package com.beolnix.trpg.scene;
+package com.beolnix.trpg.gameplay.scene.impl;
 
-import com.beolnix.trpg.ContentHelper;
-import com.beolnix.trpg.TerminalHelper;
+import com.beolnix.trpg.utils.ContentHelper;
+import com.beolnix.trpg.gameplay.scene.Scene;
+import com.beolnix.trpg.gameplay.scene.SimpleTerminalScene;
 import com.beolnix.trpg.model.Game;
-import com.beolnix.trpg.model.InputOption;
+import com.beolnix.trpg.terminal.model.InputOption;
 import com.beolnix.trpg.model.Pers;
-import com.beolnix.trpg.model.UserInputRequest;
+import com.beolnix.trpg.terminal.model.UserInputRequest;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -14,7 +15,7 @@ import java.util.List;
 /**
  * Created by beolnix on 30/08/15.
  */
-public class SelectCharacterScreen implements Scene {
+public class SelectCharacterScreen extends SimpleTerminalScene {
 
     private final Game game;
 
@@ -41,7 +42,7 @@ public class SelectCharacterScreen implements Scene {
     }
 
     private String askName() {
-        return TerminalHelper.askUserInput(getNameUserInputRequest());
+        return askUserInput(getNameUserInputRequest()).getActualInput();
     }
 
     private Pers selectCharacter() {
@@ -49,12 +50,12 @@ public class SelectCharacterScreen implements Scene {
         System.out.println("Select character.");
         while (true) {
             printImage(currentImage);
-            String userInput = TerminalHelper.askUserInput(getImageUserInputRequest());
+            InputOption inputOption = askUserInput(getImageUserInputRequest());
 
-            if ("1".equals(userInput.trim())) {
+            if ("1".equals(inputOption.getExpectedInput())) {
                 // display images in a cycle forever
                 currentImage = nextImage(currentImage);
-            } else if ("2".equals(userInput.trim())) {
+            } else if ("2".equals(inputOption.getExpectedInput())) {
                 // stop if user choose some image
                 Pers pers = new Pers();
                 pers.setImage(currentImage);

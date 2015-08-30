@@ -1,17 +1,17 @@
-package com.beolnix.trpg.scene;
+package com.beolnix.trpg.gameplay.scene.impl;
 
-import com.beolnix.trpg.Area;
-import com.beolnix.trpg.TerminalHelper;
+import com.beolnix.trpg.gameplay.scene.Scene;
+import com.beolnix.trpg.gameplay.scene.SimpleTerminalScene;
 import com.beolnix.trpg.model.Game;
-import com.beolnix.trpg.model.InputOption;
-import com.beolnix.trpg.model.UserInputRequest;
+import com.beolnix.trpg.terminal.model.InputOption;
+import com.beolnix.trpg.terminal.model.UserInputRequest;
 
 import java.util.*;
 
 /**
  * Created by beolnix on 30/08/15.
  */
-public class ExploreScreen implements Scene {
+public class ExploreScreen extends SimpleTerminalScene {
 
     private final Game game;
 
@@ -25,9 +25,9 @@ public class ExploreScreen implements Scene {
         Area area = Area.loadAreaForPosition(position);
         System.out.println(area.getDescription());
         System.out.println(area.getAsciiMap());
-        String userInput = TerminalHelper.askUserInput(generateUserInputRequest(area.getExits()));
+        InputOption userInput = askUserInput(generateUserInputRequest(area.getExits()));
 
-        Integer userInputNumber = Integer.parseInt(userInput);
+        Integer userInputNumber = Integer.parseInt(userInput.getExpectedInput());
 
         if (area.getExits().contains(userInputNumber)) {
             return new BattleScreen(game, userInputNumber);

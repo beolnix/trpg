@@ -1,5 +1,6 @@
 package com.beolnix.trpg;
 
+import com.beolnix.trpg.gameplay.scene.impl.Area;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

@@ -1,4 +1,4 @@
-package com.beolnix.trpg.model;
+package com.beolnix.trpg.terminal.model;
 
 /**
  * Created by beolnix on 30/08/15.
@@ -6,6 +6,7 @@ package com.beolnix.trpg.model;
 public class InputOption {
     private final String expectedInput;
     private final String description;
+    private String actualInput;
 
     public InputOption(String expectedInput, String description) {
         this.expectedInput = expectedInput;
@@ -18,5 +19,13 @@ public class InputOption {
 
     public String getDescription() {
         return description;
+    }
+
+    public String getActualInput() {
+        return actualInput;
+    }
+
+    public void setActualInput(String actualInput) {
+        this.actualInput = actualInput;
     }
 }

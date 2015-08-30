@@ -1,6 +1,4 @@
-package com.beolnix.trpg.scene;
-
-import com.beolnix.trpg.model.Game;
+package com.beolnix.trpg.gameplay.scene;
 
 /**
  * Created by beolnix on 30/08/15.

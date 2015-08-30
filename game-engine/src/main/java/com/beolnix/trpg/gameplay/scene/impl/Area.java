@@ -1,4 +1,6 @@
-package com.beolnix.trpg;
+package com.beolnix.trpg.gameplay.scene.impl;
+
+import com.beolnix.trpg.utils.ContentHelper;
 
 import java.util.HashSet;
 import java.util.Set;

@@ -1,6 +1,5 @@
-package com.beolnix.trpg.model;
+package com.beolnix.trpg.terminal.model;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
