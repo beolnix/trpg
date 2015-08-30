@@ -24,11 +24,15 @@ public abstract class SimpleTerminalScene implements Scene {
         terminal.print(text);
     }
 
+    protected void println(String text) {
+        terminal.println(text);
+    }
+
     protected InputOption askUserInput(UserInputRequest userInputRequest) {
         return terminal.askUserInput(userInputRequest);
     }
 
-    private void setTerminal(SimpleTerminal terminal) {
+    public void setTerminal(SimpleTerminal terminal) {
         this.terminal = terminal;
     }
 

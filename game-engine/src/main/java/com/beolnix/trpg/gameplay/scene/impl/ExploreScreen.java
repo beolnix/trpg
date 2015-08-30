@@ -23,8 +23,8 @@ public class ExploreScreen extends SimpleTerminalScene {
     public Scene play() {
         int position = game.getPers().getPosition();
         Area area = Area.loadAreaForPosition(position);
-        System.out.println(area.getDescription());
-        System.out.println(area.getAsciiMap());
+        println(area.getDescription());
+        println(area.getAsciiMap());
         InputOption userInput = askUserInput(generateUserInputRequest(area.getExits()));
 
         Integer userInputNumber = Integer.parseInt(userInput.getExpectedInput());

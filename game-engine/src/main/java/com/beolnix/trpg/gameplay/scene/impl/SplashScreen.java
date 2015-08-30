@@ -18,7 +18,7 @@ public class SplashScreen extends SimpleTerminalScene {
     }
 
     public Scene play() {
-        System.out.println(data);
+        println(data);
         return new SelectCharacterScreen(game);
     }
 }

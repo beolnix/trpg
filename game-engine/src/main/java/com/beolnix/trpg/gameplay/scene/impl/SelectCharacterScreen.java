@@ -37,7 +37,7 @@ public class SelectCharacterScreen extends SimpleTerminalScene {
     }
 
     private void displayWelcome() {
-        System.out.println("Welcome, " + game.getPers().getName() + " back!");
+        println("Welcome, " + game.getPers().getName() + " back!");
         printImage(game.getPers().getImage());
     }
 
@@ -47,7 +47,7 @@ public class SelectCharacterScreen extends SimpleTerminalScene {
 
     private Pers selectCharacter() {
         int currentImage = 1;
-        System.out.println("Select character.");
+        println("Select character.");
         while (true) {
             printImage(currentImage);
             InputOption inputOption = askUserInput(getImageUserInputRequest());
@@ -74,7 +74,7 @@ public class SelectCharacterScreen extends SimpleTerminalScene {
 
     private void printImage(int imageNumber) {
         String data = ContentHelper.getContent("/content/character_" + imageNumber + ".txt");
-        System.out.println(data);
+        println(data);
     }
 
     private UserInputRequest getNameUserInputRequest() {

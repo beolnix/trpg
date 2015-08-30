@@ -37,12 +37,5 @@ public class ExploreScreenTestCase {
         }
     }
 
-    private void changeModifier() {
-        Class cls = ExploreScreen.class;
-        Method method = cls.getMethods()[1];
 
-
-
-        method.setAccessible(true);
-    }
 }
