@@ -1,6 +1,6 @@
-package com.beolnix.trpg.gameplay.scene.impl;
+package com.beolnix.trpg.utils;
 
-import com.beolnix.trpg.utils.ContentHelper;
+import com.beolnix.trpg.model.Area;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -8,23 +8,24 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Area is the mini map used by ExploreScreen to display where the player is and what variants he has.
- * Created by beolnix on 30/08/15.
+ * Class provides method to load Area for position from the content files.
+ *
+ * Created by beolnix on 01/09/15.
  */
-public class Area {
+public class AreaHelper {
 
-    private String asciiMap;
-    private Set<Integer> exits;
-    private String description;
+    private AreaHelper() {}
 
-    private Area() {}
-
+    /**
+     * Loads Area for specific position from the content files
+     * @param position
+     * @return
+     */
     public static Area loadAreaForPosition(int position) {
-        Area area = new Area();
-        area.asciiMap = loadArea(position);
-        area.exits = identifyExits(area.asciiMap);
-        area.description = loadDescription(position);
-        return area;
+        String asciiMap = loadArea(position);
+        Set<Integer> exits = identifyExits(asciiMap);
+        String description = loadDescription(position);
+        return new Area(asciiMap, exits, description);
     }
 
     private static String loadArea(int position) {
@@ -35,6 +36,11 @@ public class Area {
         return ContentHelper.getContent("/content/area_" + position + "_description.txt");
     }
 
+    /**
+     * Method identifies exits in Area using regexp
+     * @param asciiMap
+     * @return
+     */
     private static Set<Integer> identifyExits(String asciiMap) {
         Pattern p = Pattern.compile("EXIT:\\d{1,2}");
         Matcher m = p.matcher(asciiMap);
@@ -49,17 +55,5 @@ public class Area {
 
         }
         return exits;
-    }
-
-    public String getAsciiMap() {
-        return asciiMap;
-    }
-
-    public Set<Integer> getExits() {
-        return exits;
-    }
-
-    public String getDescription() {
-        return description;
     }
 }

@@ -2,10 +2,12 @@ package com.beolnix.trpg.gameplay.scene.impl;
 
 import com.beolnix.trpg.gameplay.scene.Scene;
 import com.beolnix.trpg.gameplay.scene.SimpleTerminalScene;
+import com.beolnix.trpg.model.Area;
 import com.beolnix.trpg.model.Game;
 import com.beolnix.trpg.terminal.SimpleTerminal;
 import com.beolnix.trpg.terminal.model.InputOption;
 import com.beolnix.trpg.terminal.model.UserInputRequest;
+import com.beolnix.trpg.utils.AreaHelper;
 
 import java.util.*;
 
@@ -30,7 +32,7 @@ public class ExploreScreen extends SimpleTerminalScene {
             return new FinishGameScreen(getTerminal(), game);
         }
 
-        Area area = Area.loadAreaForPosition(position);
+        Area area = AreaHelper.loadAreaForPosition(position);
         println(area.getDescription());
         println(area.getAsciiMap());
         InputOption userInput = askUserInput(generateUserInputRequest(area.getExits()));

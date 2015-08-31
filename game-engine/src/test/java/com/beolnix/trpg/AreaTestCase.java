@@ -1,6 +1,7 @@
 package com.beolnix.trpg;
 
-import com.beolnix.trpg.gameplay.scene.impl.Area;
+import com.beolnix.trpg.model.Area;
+import com.beolnix.trpg.utils.AreaHelper;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -12,7 +13,7 @@ public class AreaTestCase {
 
     @Test
     public void loadAreaTest() {
-        Area area = Area.loadAreaForPosition(0);
+        Area area = AreaHelper.loadAreaForPosition(0);
 
         assertEquals(1, area.getExits().size());
         assertEquals(new Integer(1), area.getExits().iterator().next());

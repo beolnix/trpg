@@ -32,12 +32,14 @@ public class GameMaster {
      */
     public static Game loadOrCreateGame(String path) {
         try {
-            if (new File(path).exists()) {
+            if (path != null && new File(path).exists()) {
                 return GameMaster.loadGame(path);
-            } else {
+            } else if (path != null) {
                 Game game = new Game(path);
                 GameMaster.saveGame(game, path);
                 return game;
+            } else {
+                return createNewGame();
             }
         } catch (Fatal f) {
             System.out.println("ERROR: " + f.getMessage());

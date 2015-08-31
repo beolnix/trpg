@@ -1,10 +1,10 @@
 package com.beolnix.trpg.gameplay;
 
-import com.beolnix.trpg.terminal.SimpleTerminal;
-import com.beolnix.trpg.utils.GameMaster;
-import com.beolnix.trpg.gameplay.scene.*;
+import com.beolnix.trpg.gameplay.scene.Scene;
 import com.beolnix.trpg.gameplay.scene.impl.*;
 import com.beolnix.trpg.model.Game;
+import com.beolnix.trpg.terminal.SimpleTerminal;
+import com.beolnix.trpg.utils.GameMaster;
 
 /**
  * Class describes how the game goes. Step by Step it executes Scene.play() methods
@@ -44,28 +44,32 @@ public class GameScenario {
     /**
      * makes delay for provided number of secs and
      * prints dots on the screen during the delay
+     *
      * @param secs
      */
     private void delay(int secs) {
-        try {
-            long delay = secs * 1000L;
-            long start = System.currentTimeMillis();
+        long delay = secs * 1000L;
+        long start = System.currentTimeMillis();
+        long current = System.currentTimeMillis();
 
-            while (true) {
-                Thread.sleep(50);
-                terminal.print(".");
-                long current = System.currentTimeMillis();
-                if ((current - start) > delay) {
-                    terminal.println("");
-                    return;
-                }
-            }
+        while ((current - start) < delay) {
+            unsafeDelay(50);
+            terminal.print(".");
+            current = System.currentTimeMillis();
+        }
+
+        terminal.println("");
+    }
+
+    private void unsafeDelay(int milisecs) {
+        try {
+            Thread.sleep(milisecs);
         } catch (InterruptedException e) {
             //nop
         }
     }
 
-    private static boolean isItTheEnd(Scene scene) {
+    private boolean isItTheEnd(Scene scene) {
         return (scene instanceof GameOverScreen) ||
                 (scene instanceof FinishGameScreen);
     }
