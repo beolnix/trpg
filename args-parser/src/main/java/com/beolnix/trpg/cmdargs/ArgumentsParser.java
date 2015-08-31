@@ -15,11 +15,12 @@ import java.util.Set;
 public interface ArgumentsParser {
 
     /**
-     * Parses passed command line arguments
+     * Parses passed command line arguments. Returns a map with provided command line arguments.
      * Throws exception if unsupported argument found.
+     *
      * @param args array of command line arguments
-     * @return Map of command like arguments
-     * @throws UnknownFlag if unsupported (not passed to the constructor) argument found.
+     * @return Map of parsed command like arguments
+     * @throws UnknownFlag if unsupported argument found.
      */
     public Map<CommandLineArgument, String> parse(String[] args) throws UnknownFlag;
 
