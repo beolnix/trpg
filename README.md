@@ -1,7 +1,7 @@
 # Tiny Role playing game
 
 ## Project details
-0.1 - current stable version.
+0.2 - current stable version.
 
 ## Install And Run binaries
 
@@ -10,7 +10,7 @@
 - java program must be in $PATH.
 
 ### Instruction
-1. Download binary distrib from here: [trpg-distr-0.1.zip](http://nexus.beolnix.com/service/local/repositories/releases/content/com/beolnix/trpg-distr/0.1/trpg-distr-0.1.zip)
+1. Download binary distrib from here: [trpg-distr-0.2.zip](http://nexus.beolnix.com/service/local/repositories/releases/content/com/beolnix/trpg-distr/0.2/trpg-distr-0.2.zip)
 2. Unpack
 3. run trpg.sh
 
