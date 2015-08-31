@@ -41,7 +41,11 @@ public class GameScenario {
         nextScene.play();
     }
 
-
+    /**
+     * makes delay for provided number of secs and
+     * prints dots on the screen during the delay
+     * @param secs
+     */
     private void delay(int secs) {
         try {
             long delay = secs * 1000L;
