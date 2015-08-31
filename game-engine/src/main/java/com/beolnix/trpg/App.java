@@ -55,7 +55,7 @@ public class App {
             return GameMaster.loadOrCreateGame(path);
         }
 
-        return GameMaster.loadOrCreateGame();
+        return GameMaster.createNewGame();
     }
 
     private static void printVersionIfRequired(Map<CommandLineArgument, String> parsedArguments) {

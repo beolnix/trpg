@@ -1,6 +1,5 @@
 package com.beolnix.trpg.utils;
 
-import com.beolnix.trpg.utils.GameMaster;
 import com.beolnix.trpg.error.Fatal;
 import com.beolnix.trpg.model.Game;
 import com.beolnix.trpg.model.Pers;
@@ -34,7 +33,7 @@ public class GameMasterTestCase {
 
     @Test
     public void loadOrCreateTest2() throws Fatal {
-        Game game = GameMaster.loadOrCreateGame();
+        Game game = GameMaster.createNewGame();
         assertNotNull(game);
     }
 

@@ -6,21 +6,30 @@ import com.beolnix.trpg.model.Game;
 import java.beans.XMLDecoder;
 import java.beans.XMLEncoder;
 import java.io.*;
-import java.text.SimpleDateFormat;
 import java.util.UUID;
 
 /**
+ * Class provides save and load game progress persisted in a Game object
  * Created by beolnix on 30/08/15.
  */
 public class GameMaster {
 
     private GameMaster() {}
 
-    public static Game loadOrCreateGame() {
+    /**
+     * Method creates new game
+     * @return
+     */
+    public static Game createNewGame() {
         String name = UUID.randomUUID().toString();
         return loadOrCreateGame("./" + name + ".xml");
     }
 
+    /**
+     * Method loads the game using provided path or creates a new one if file doesn't exist
+     * @param path
+     * @return
+     */
     public static Game loadOrCreateGame(String path) {
         try {
             if (new File(path).exists()) {
@@ -37,6 +46,12 @@ public class GameMaster {
         }
     }
 
+    /**
+     * Method loads game from the file
+     * @param path
+     * @return
+     * @throws Fatal
+     */
     public static Game loadGame(String path) throws Fatal {
         try {
             XMLDecoder decoder = new XMLDecoder(new BufferedInputStream(new FileInputStream(path)));
@@ -48,6 +63,11 @@ public class GameMaster {
         }
     }
 
+    /**
+     * Method saves game to the file
+     * @param game
+     * @param path
+     */
     public static void saveGame(Game game, String path) {
         try {
             File file = new File(path);
