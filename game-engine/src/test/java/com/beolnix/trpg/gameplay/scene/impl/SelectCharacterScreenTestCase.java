@@ -21,8 +21,7 @@ public class SelectCharacterScreenTestCase {
     @Test
     public void playTest() {
         Game game = new Game();
-        SelectCharacterScreen selectCharacterScreen = new SelectCharacterScreen(game);
-        selectCharacterScreen.setTerminal(getConsole());
+        SelectCharacterScreen selectCharacterScreen = new SelectCharacterScreen(getConsole(), game);
         Scene scene = selectCharacterScreen.play();
 
         assertEquals(expectedImage, game.getPers().getImage());

@@ -14,7 +14,8 @@ public class FinishGameScreen extends SimpleTerminalScene {
 
     private final Game game;
 
-    public FinishGameScreen(Game game) {
+    public FinishGameScreen(SimpleTerminal terminal, Game game) {
+        super(terminal);
         this.game = game;
     }
 

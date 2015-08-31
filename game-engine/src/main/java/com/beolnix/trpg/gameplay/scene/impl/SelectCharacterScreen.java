@@ -1,5 +1,6 @@
 package com.beolnix.trpg.gameplay.scene.impl;
 
+import com.beolnix.trpg.terminal.SimpleTerminal;
 import com.beolnix.trpg.utils.ContentHelper;
 import com.beolnix.trpg.gameplay.scene.Scene;
 import com.beolnix.trpg.gameplay.scene.SimpleTerminalScene;
@@ -20,7 +21,8 @@ public class SelectCharacterScreen extends SimpleTerminalScene {
 
     private final Game game;
 
-    public SelectCharacterScreen(Game game) {
+    public SelectCharacterScreen(SimpleTerminal terminal, Game game) {
+        super(terminal);
         this.game = game;
     }
 
@@ -36,7 +38,7 @@ public class SelectCharacterScreen extends SimpleTerminalScene {
         } else {
             displayWelcome();
         }
-        return new ExploreScreen(game);
+        return new ExploreScreen(getTerminal(), game);
     }
 
     private void displayWelcome() {

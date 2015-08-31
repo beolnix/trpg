@@ -6,6 +6,7 @@ import com.beolnix.trpg.gameplay.quiz.model.Question;
 import com.beolnix.trpg.gameplay.scene.Scene;
 import com.beolnix.trpg.gameplay.scene.SimpleTerminalScene;
 import com.beolnix.trpg.model.Game;
+import com.beolnix.trpg.terminal.SimpleTerminal;
 import com.beolnix.trpg.terminal.model.InputOption;
 import com.beolnix.trpg.terminal.model.UserInputRequest;
 import com.beolnix.trpg.utils.ContentHelper;
@@ -23,7 +24,8 @@ public class BattleScreen extends SimpleTerminalScene {
     private final Integer nextPosition;
     private final Game game;
 
-    public BattleScreen(Game game, Integer nextPosition) {
+    public BattleScreen(SimpleTerminal terminal, Game game, Integer nextPosition) {
+        super(terminal);
         this.nextPosition = nextPosition;
         this.game = game;
     }
@@ -46,12 +48,12 @@ public class BattleScreen extends SimpleTerminalScene {
     }
 
     private Scene gameOver() {
-        return new GameOverScreen(game);
+        return new GameOverScreen(getTerminal(), game);
     }
 
     private Scene goNext() {
         game.getPers().setPosition(nextPosition);
-        return new ExploreScreen(game);
+        return new ExploreScreen(getTerminal(), game);
     }
 
     private boolean letsTheFightBegin() {

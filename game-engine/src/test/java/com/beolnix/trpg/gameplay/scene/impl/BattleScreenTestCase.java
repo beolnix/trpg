@@ -23,8 +23,7 @@ public class BattleScreenTestCase {
         Game game = new Game();
         game.setPers(new Pers());
 
-        BattleScreen screen = new BattleScreen(game, 1);
-        screen.setTerminal(getConsole("1"));
+        BattleScreen screen = new BattleScreen(getConsole("1"), game, 1);
         Scene nextScene = screen.play();
 
         assertNotNull(nextScene);
@@ -36,8 +35,7 @@ public class BattleScreenTestCase {
         Game game = new Game();
         game.setPers(new Pers());
 
-        BattleScreen screen = new BattleScreen(game, 1);
-        screen.setTerminal(getConsole("0"));
+        BattleScreen screen = new BattleScreen(getConsole("0"), game, 1);
         Scene nextScene = screen.play();
 
         assertNotNull(nextScene);

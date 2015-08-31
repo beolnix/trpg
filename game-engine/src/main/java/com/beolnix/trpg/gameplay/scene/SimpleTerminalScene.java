@@ -20,10 +20,11 @@ import java.io.OutputStreamWriter;
  */
 public abstract class SimpleTerminalScene implements Scene {
 
-    private SimpleTerminal terminal =
-            new InteractiveConsole(
-                    new BufferedWriter(new OutputStreamWriter(System.out)),
-                    new BufferedReader(new InputStreamReader(System.in)));
+    private final SimpleTerminal terminal;
+
+    public SimpleTerminalScene(SimpleTerminal terminal) {
+        this.terminal = terminal;
+    }
 
     protected void print(String text) {
         terminal.print(text);
@@ -37,12 +38,8 @@ public abstract class SimpleTerminalScene implements Scene {
         return terminal.askUserInput(userInputRequest);
     }
 
-    public void setTerminal(SimpleTerminal terminal) {
-        this.terminal = terminal;
+    protected SimpleTerminal getTerminal() {
+        return this.terminal;
     }
 
-    @Override
-    public SimpleTerminal getTerminal() {
-        return terminal;
-    }
 }

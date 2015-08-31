@@ -1,6 +1,7 @@
 package com.beolnix.trpg.gameplay.scene.impl;
 
 import com.beolnix.trpg.model.Game;
+import com.beolnix.trpg.terminal.SimpleTerminal;
 import com.beolnix.trpg.utils.ContentHelper;
 import com.beolnix.trpg.gameplay.scene.Scene;
 import com.beolnix.trpg.gameplay.scene.SimpleTerminalScene;
@@ -13,7 +14,8 @@ public class GameOverScreen extends SimpleTerminalScene {
 
     private final Game game;
 
-    public GameOverScreen(Game game) {
+    public GameOverScreen(SimpleTerminal terminal, Game game) {
+        super(terminal);
         this.game = game;
     }
 

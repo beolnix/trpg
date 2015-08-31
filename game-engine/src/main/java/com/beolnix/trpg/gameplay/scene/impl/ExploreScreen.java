@@ -3,6 +3,7 @@ package com.beolnix.trpg.gameplay.scene.impl;
 import com.beolnix.trpg.gameplay.scene.Scene;
 import com.beolnix.trpg.gameplay.scene.SimpleTerminalScene;
 import com.beolnix.trpg.model.Game;
+import com.beolnix.trpg.terminal.SimpleTerminal;
 import com.beolnix.trpg.terminal.model.InputOption;
 import com.beolnix.trpg.terminal.model.UserInputRequest;
 
@@ -16,7 +17,8 @@ public class ExploreScreen extends SimpleTerminalScene {
 
     private final Game game;
 
-    public ExploreScreen(Game game) {
+    public ExploreScreen(SimpleTerminal terminal, Game game) {
+        super(terminal);
         this.game = game;
     }
 
@@ -25,7 +27,7 @@ public class ExploreScreen extends SimpleTerminalScene {
         int position = game.getPers().getPosition();
 
         if (position > 12) {
-            return new FinishGameScreen(game);
+            return new FinishGameScreen(getTerminal(), game);
         }
 
         Area area = Area.loadAreaForPosition(position);
@@ -36,11 +38,11 @@ public class ExploreScreen extends SimpleTerminalScene {
         Integer userInputNumber = Integer.parseInt(userInput.getExpectedInput());
 
         if (area.getExits().contains(userInputNumber)) {
-            return new BattleScreen(game, userInputNumber);
+            return new BattleScreen(getTerminal(), game, userInputNumber);
         }
 
         //player choose to die
-        return new GameOverScreen(game);
+        return new GameOverScreen(getTerminal(), game);
     }
 
     UserInputRequest generateUserInputRequest(Set<Integer> exits) {

@@ -13,34 +13,36 @@ import com.beolnix.trpg.model.Game;
  */
 public class GameScenario {
 
-    private GameScenario() {}
+    private final SimpleTerminal terminal;
 
-    public static void run(Game game) {
-        playSceneWithDelay(new SplashScreen(game), 2);
+    public GameScenario(SimpleTerminal terminal) {
+        this.terminal = terminal;
+    }
 
-        playSceneWithDelay(new SelectCharacterScreen(game), 1);
+    public void run(Game game) {
+        new SplashScreen(terminal, game).play();
+        delay(2);
+
+        new SelectCharacterScreen(terminal, game).play();
+        delay(1);
 
         GameMaster.saveGame(game, game.getSavePath());
 
-        Scene nextScene = new ExploreScreen(game);
+        Scene nextScene = new ExploreScreen(terminal, game).play();
 
         // indefinitely walking between scenes until next one is gameover or finish game scene
         // saving the game between scenes
         do {
-            nextScene = playSceneWithDelay(nextScene, 1);
+            nextScene = nextScene.play();
             GameMaster.saveGame(game, game.getSavePath());
+            delay(1);
         } while (!isItTheEnd(nextScene));
 
         nextScene.play();
     }
 
-    private static Scene playSceneWithDelay(Scene scene, int delay) {
-        Scene nextScene = scene.play();
-        delay(delay, scene.getTerminal());
-        return nextScene;
-    }
 
-    private static void delay(int secs, SimpleTerminal terminal) {
+    private void delay(int secs) {
         try {
             long delay = secs * 1000L;
             long start = System.currentTimeMillis();

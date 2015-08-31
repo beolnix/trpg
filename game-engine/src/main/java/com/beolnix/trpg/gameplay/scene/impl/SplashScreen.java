@@ -1,5 +1,6 @@
 package com.beolnix.trpg.gameplay.scene.impl;
 
+import com.beolnix.trpg.terminal.SimpleTerminal;
 import com.beolnix.trpg.utils.ContentHelper;
 import com.beolnix.trpg.gameplay.scene.Scene;
 import com.beolnix.trpg.gameplay.scene.SimpleTerminalScene;
@@ -14,13 +15,14 @@ public class SplashScreen extends SimpleTerminalScene {
     private static final String data = ContentHelper.getContent("/content/splash_screen.txt");
     private final Game game;
 
-    public SplashScreen(Game game) {
+    public SplashScreen(SimpleTerminal terminal, Game game) {
+        super(terminal);
         this.game = game;
     }
 
     @Override
     public Scene play() {
         println(data);
-        return new SelectCharacterScreen(game);
+        return new SelectCharacterScreen(getTerminal(), game);
     }
 }

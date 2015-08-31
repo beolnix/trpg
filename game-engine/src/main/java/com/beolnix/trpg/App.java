@@ -7,9 +7,15 @@ import com.beolnix.trpg.cmdargs.error.UnknownFlag;
 import com.beolnix.trpg.cmdargs.model.CommandLineArgument;
 import com.beolnix.trpg.gameplay.GameScenario;
 import com.beolnix.trpg.model.Game;
+import com.beolnix.trpg.terminal.SimpleTerminal;
+import com.beolnix.trpg.terminal.impl.InteractiveConsole;
 import com.beolnix.trpg.utils.GameMaster;
 import com.beolnix.trpg.utils.VersionHelper;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.util.Collections;
 import java.util.Map;
 
@@ -33,7 +39,13 @@ public class App {
 
         Game game = loadGame(parsedArguments);
 
-        GameScenario.run(game);
+        // It is not so hard to make the game accessible via .. telnet
+        // just by replacing this terminal
+        SimpleTerminal terminal = new InteractiveConsole(
+                        new BufferedWriter(new OutputStreamWriter(System.out)),
+                        new BufferedReader(new InputStreamReader(System.in)));
+
+        new GameScenario(terminal).run(game);
 
     }
 

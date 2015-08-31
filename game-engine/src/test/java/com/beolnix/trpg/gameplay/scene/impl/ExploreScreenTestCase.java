@@ -33,7 +33,7 @@ public class ExploreScreenTestCase {
         exits.add(4);
         exits.add(2);
 
-        ExploreScreen exploreScreen = new ExploreScreen(null);
+        ExploreScreen exploreScreen = new ExploreScreen(getConsole(), null);
         UserInputRequest userInputRequest = exploreScreen.generateUserInputRequest(exits);
 
         for (Integer providedExit : exits) {
@@ -52,8 +52,7 @@ public class ExploreScreenTestCase {
         Game game = new Game();
         game.setPers(new Pers());
 
-        ExploreScreen screen = new ExploreScreen(game);
-        screen.setTerminal(getConsole());
+        ExploreScreen screen = new ExploreScreen(getConsole(), game);
         Scene nextScene = screen.play();
 
         assertNotNull(nextScene);

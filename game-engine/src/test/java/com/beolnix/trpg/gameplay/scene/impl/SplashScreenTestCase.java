@@ -20,8 +20,7 @@ public class SplashScreenTestCase {
 
     @Test
     public void playTest() {
-        SplashScreen splashScreen = new SplashScreen(null);
-        splashScreen.setTerminal(getConsole());
+        SplashScreen splashScreen = new SplashScreen(getConsole(), null);
         Scene scene = splashScreen.play();
 
         assertNotNull(scene);

@@ -16,9 +16,4 @@ public interface Scene {
      */
     public Scene play();
 
-    /**
-     * Returns the terminal used by the scene.
-     * @return
-     */
-    public SimpleTerminal getTerminal();
 }
