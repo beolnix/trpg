@@ -3,7 +3,6 @@ package com.beolnix.trpg.cmdargs;
 import com.beolnix.trpg.cmdargs.error.UnknownFlag;
 import com.beolnix.trpg.cmdargs.impl.DefaultArgumentsParser;
 import com.beolnix.trpg.cmdargs.model.CommandLineArgument;
-import com.beolnix.trpg.cmdargs.model.PassedArgument;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -47,21 +46,21 @@ public class ArgumentsParserTestCase {
     public void testTransform() throws UnknownFlag {
         ArgumentsParser argsParser = new DefaultArgumentsParser(getSupportedArgs());
         String[] args = new String[]{"-s", "path"};
-        Map<CommandLineArgument, PassedArgument> passedArgs = argsParser.transform(args);
+        Map<CommandLineArgument, String> passedArgs = argsParser.parse(args);
 
         assertNotNull(passedArgs);
         assertTrue(passedArgs.containsKey(someArg));
         assertNotNull(passedArgs.get(someArg));
-        assertEquals(args[1], passedArgs.get(someArg).getValue());
+        assertEquals(args[1], passedArgs.get(someArg));
     }
 
     @Test
     public void testConsistOfHelp() throws UnknownFlag {
         ArgumentsParser argsParser = new DefaultArgumentsParser(getSupportedArgs());
         String[] args = new String[]{"-h"};
-        Map<CommandLineArgument, PassedArgument> passedArgs = argsParser.transform(args);
+        Map<CommandLineArgument, String> passedArgs = argsParser.parse(args);
 
-        assertTrue(ArgumentsHelper.consistOfHelp(passedArgs.values()));
+        assertTrue(ArgumentsHelper.consistOfHelp(passedArgs));
     }
 
     @Test
@@ -79,7 +78,7 @@ public class ArgumentsParserTestCase {
     public void testUnkownArgumentException() throws UnknownFlag {
         ArgumentsParser argsParser = new DefaultArgumentsParser(getSupportedArgs());
         String[] args = new String[]{"-vava"};
-        Map<CommandLineArgument, PassedArgument> passedArgs = argsParser.transform(args);
+        Map<CommandLineArgument, String> passedArgs = argsParser.parse(args);
     }
 
     public CommandLineArgument[] getSupportedArgs() {

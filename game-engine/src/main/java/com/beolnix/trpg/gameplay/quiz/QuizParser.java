@@ -9,7 +9,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Service used to parse /content/questions.txt and transform the fail
+ * Service used to parse /content/questions.txt and parse the fail
  * into the collection of question objects.
  * Created by beolnix on 30/08/15.
  */

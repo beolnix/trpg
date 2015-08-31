@@ -3,7 +3,6 @@ import com.beolnix.trpg.cmdargs.ArgumentsParser;
 import com.beolnix.trpg.cmdargs.error.UnknownFlag;
 import com.beolnix.trpg.cmdargs.impl.DefaultArgumentsParser;
 import com.beolnix.trpg.cmdargs.model.CommandLineArgument;
-import com.beolnix.trpg.cmdargs.model.PassedArgument;
 
 import java.util.Map;
 
@@ -29,14 +28,14 @@ public class UsageExample {
 
         try {
 
-            Map<CommandLineArgument, PassedArgument> passedArgs = argsParser.transform(args);
-            if (ArgumentsHelper.consistOf(passedArgs.values(), someArg)) {
+            Map<CommandLineArgument, String> passedArgs = argsParser.parse(args);
+            if (passedArgs.containsKey(someArg)) {
                 //process some arg passed to the program here
                 System.out.println("you passed " + someArg.getFlags()[0] + " " +
-                        "with " + passedArgs.get(someArg).getValue() + " value");
+                        "with " + passedArgs.get(someArg) + " value");
             }
 
-            if (ArgumentsHelper.consistOfHelp(passedArgs.values())) {
+            if (ArgumentsHelper.consistOfHelp(passedArgs)) {
                 //print help message here
                 System.out.println(argsParser.getHelpMessage());
             }

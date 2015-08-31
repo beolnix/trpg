@@ -4,7 +4,6 @@ import com.beolnix.trpg.cmdargs.ArgumentsParser;
 import com.beolnix.trpg.cmdargs.HelpPrinter;
 import com.beolnix.trpg.cmdargs.error.UnknownFlag;
 import com.beolnix.trpg.cmdargs.model.CommandLineArgument;
-import com.beolnix.trpg.cmdargs.model.PassedArgument;
 
 import java.util.*;
 
@@ -26,20 +25,20 @@ public class DefaultArgumentsParser implements ArgumentsParser {
     }
 
     @Override
-    public Map<CommandLineArgument, PassedArgument> transform(String[] args) throws UnknownFlag {
+    public Map<CommandLineArgument, String> parse(String[] args) throws UnknownFlag {
         if (args.length == 0) {
             return Collections.emptyMap();
         }
 
         LinkedList<String> argsList = new LinkedList<>(Arrays.asList(args));
-        Map<CommandLineArgument, PassedArgument> passedArgumentMap = new HashMap<>();
+        Map<CommandLineArgument, String> passedArgumentMap = new HashMap<>();
         while(!argsList.isEmpty()) {
             String flagStr = argsList.pop();
             CommandLineArgument commandLineArgument = parseArg(flagStr);
             if (!argsList.isEmpty()) {
-                passedArgumentMap.put(commandLineArgument, new PassedArgument(commandLineArgument, argsList.pop()));
+                passedArgumentMap.put(commandLineArgument, argsList.pop());
             } else {
-                passedArgumentMap.put(commandLineArgument, new PassedArgument(commandLineArgument, null));
+                passedArgumentMap.put(commandLineArgument, null);
             }
 
         }

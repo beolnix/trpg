@@ -2,28 +2,26 @@ package com.beolnix.trpg.cmdargs;
 
 import com.beolnix.trpg.cmdargs.error.UnknownFlag;
 import com.beolnix.trpg.cmdargs.model.CommandLineArgument;
-import com.beolnix.trpg.cmdargs.model.PassedArgument;
 
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
 /**
  * Arguments Parser interface.
- * Parser is used to transform provided command lines parameters into the Passed Arguments objects
+ * Parser is used to parse provided command lines parameters into the Passed Arguments objects
  * It also provides functionality to nicely print supported command line arguments.
  * Created by beolnix on 29/08/15.
  */
 public interface ArgumentsParser {
 
     /**
-     * Transforms passed command line arguments to the list of PassedArgument objects.
+     * Parses passed command line arguments
      * Throws exception if unsupported argument found.
      * @param args array of command line arguments
-     * @return list of PassedArgument objects
+     * @return Map of command like arguments
      * @throws UnknownFlag if unsupported (not passed to the constructor) argument found.
      */
-    public Map<CommandLineArgument, PassedArgument> transform(String[] args) throws UnknownFlag;
+    public Map<CommandLineArgument, String> parse(String[] args) throws UnknownFlag;
 
     /**
      * Return supported command line arguments
