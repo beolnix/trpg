@@ -2,6 +2,7 @@ package com.beolnix.trpg;
 
 
 import com.beolnix.trpg.cmdargs.ArgumentsHelper;
+import com.beolnix.trpg.cmdargs.ArgumentsParser;
 import com.beolnix.trpg.cmdargs.impl.DefaultArgumentsParser;
 import com.beolnix.trpg.cmdargs.error.UnknownFlag;
 import com.beolnix.trpg.cmdargs.model.CommandLineArgument;
@@ -29,7 +30,7 @@ import static com.beolnix.trpg.GameArgs.versionCommandLineArgument;
 public class App {
 
     private final static String appName = "Tiny role play game";
-    private final static DefaultArgumentsParser argsParser = new DefaultArgumentsParser(GameArgs.getAll());
+    private final static ArgumentsParser argsParser = new DefaultArgumentsParser(GameArgs.getAll());
 
     public static void main(String[] args) {
 
@@ -49,6 +50,12 @@ public class App {
 
     }
 
+    /**
+     * Loads game if savefile was provided.
+     * Creates new Game and savefile if no one was provided.
+     * @param parsedArguments
+     * @return
+     */
     private static Game loadGame(Map<CommandLineArgument, String> parsedArguments) {
         if (parsedArguments.containsKey(savedGameCommandLineArgument)) {
             String path = parsedArguments.get(savedGameCommandLineArgument);
@@ -58,6 +65,10 @@ public class App {
         }
     }
 
+    /**
+     * Prints version specified in Manifest and terminates the app.
+     * @param parsedArguments
+     */
     private static void printVersionIfRequired(Map<CommandLineArgument, String> parsedArguments) {
         if (parsedArguments.containsKey(versionCommandLineArgument)) {
             String version = VersionHelper.getVersion();
