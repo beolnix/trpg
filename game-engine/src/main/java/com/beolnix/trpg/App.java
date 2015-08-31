@@ -53,9 +53,9 @@ public class App {
         if (parsedArguments.containsKey(savedGameCommandLineArgument)) {
             String path = parsedArguments.get(savedGameCommandLineArgument);
             return GameMaster.loadOrCreateGame(path);
+        } else {
+            return GameMaster.createNewGame();
         }
-
-        return GameMaster.createNewGame();
     }
 
     private static void printVersionIfRequired(Map<CommandLineArgument, String> parsedArguments) {
