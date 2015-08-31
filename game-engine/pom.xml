@@ -5,7 +5,7 @@
     <parent>
         <groupId>com.beolnix</groupId>
         <artifactId>trpg</artifactId>
-        <version>0.2</version>
+        <version>0.3-SNAPSHOT</version>
     </parent>
 
     <artifactId>game-engine</artifactId>
