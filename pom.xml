@@ -17,6 +17,7 @@
         <!-- Jacoco - coverage -->
         <jacoco.reportPath>target/jacoco.exec</jacoco.reportPath>
         <jacoco.version>0.7.4.201502262128</jacoco.version>
+        <args-parser.version>0.3</args-parser.version>
     </properties>
 
     <developers>
@@ -39,14 +40,26 @@
         </snapshotRepository>
     </distributionManagement>
 
+    <repositories>
+        <repository>
+            <id>beolnix-releases</id>
+            <name>releases repo</name>
+            <url>http://nexus.beolnix.com/content/repositories/releases/</url>
+        </repository>
+    </repositories>
+
     <modules>
-        <module>args-parser</module>
         <module>game-engine</module>
         <module>trpg-distr</module>
     </modules>
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>com.beolnix</groupId>
+                <artifactId>args-parser</artifactId>
+                <version>${args-parser.version}</version>
+            </dependency>
             <dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>

@@ -16,7 +16,6 @@
         <dependency>
             <groupId>com.beolnix</groupId>
             <artifactId>args-parser</artifactId>
-            <version>${project.version}</version>
         </dependency>
 
         <dependency>

@@ -1,11 +1,11 @@
 package com.beolnix.trpg;
 
 
-import com.beolnix.trpg.cmdargs.ArgumentsHelper;
 import com.beolnix.trpg.cmdargs.ArgumentsParser;
 import com.beolnix.trpg.cmdargs.impl.DefaultArgumentsParser;
 import com.beolnix.trpg.cmdargs.error.UnknownFlag;
 import com.beolnix.trpg.cmdargs.model.CommandLineArgument;
+import com.beolnix.trpg.cmdargs.utils.ArgumentsHelper;
 import com.beolnix.trpg.gameplay.GameScenario;
 import com.beolnix.trpg.model.Game;
 import com.beolnix.trpg.terminal.SimpleTerminal;
@@ -22,6 +22,7 @@ import java.util.Map;
 
 import static com.beolnix.trpg.GameArgs.savedGameCommandLineArgument;
 import static com.beolnix.trpg.GameArgs.versionCommandLineArgument;
+import static com.beolnix.trpg.GameArgs.argsParser;
 
 
 /**
@@ -30,7 +31,7 @@ import static com.beolnix.trpg.GameArgs.versionCommandLineArgument;
 public class App {
 
     private final static String appName = "Tiny role play game";
-    private final static ArgumentsParser argsParser = new DefaultArgumentsParser(GameArgs.getAll());
+    private final static ArgumentsHelper argumentsHelper = new ArgumentsHelper();
 
     public static void main(String[] args) {
 
@@ -78,7 +79,7 @@ public class App {
     }
 
     private static void printHelpIfRequired(Map<CommandLineArgument, String> parsedArguments) {
-        if (ArgumentsHelper.consistOfHelp(parsedArguments)) {
+        if (argumentsHelper.consistOfHelp(parsedArguments)) {
             System.out.println(argsParser.getHelpMessage());
             System.exit(1);
         }
